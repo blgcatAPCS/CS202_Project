@@ -13,6 +13,7 @@
 //Local header file
 #include "config.h"
 #include "console.h"
+#include "ctraffic.h"
 #include "canimal.h"
 #include "cvehicle.h"
 #include "cpeople.h"

@@ -4,7 +4,7 @@
 class CANIMAL{
 int mX, mY;
 public:
-    virtual void Move(int, int);
+    virtual void Move(int, int); //speed and direction control
     virtual void Tell();
 };
 class CDINAUSOR: public CANIMAL{
