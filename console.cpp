@@ -37,31 +37,6 @@ void gotoXY(int column, int line)
     coord.Y = line;
     SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE), coord);
 }
-void control(object &X, char key)
-{
-	X.x = wherex();
-	X.y = wherey();
-	if ((int)key == LEFT)
-	{
-		X.x--;
-		gotoXY(X.x,X.y);
-	}
-    else if ((int)key == RIGHT)
-	{
-		X.x++;
-		gotoXY(X.x, X.y);
-	}
-    else if ((int)key == DOWN)
-	{
-		X.y++;
-		gotoXY(X.x, X.y);
-	}
-    else if ((int)key == UP)
-	{
-		X.y--;
-		gotoXY(X.x, X.y);
-	}
-}
 void Textcolor(int color)
 {
     SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), color);

@@ -13,11 +13,11 @@
 //Local header file
 #include "config.h"
 #include "console.h"
-#include "cpeople.h"
-#include "cvehicle.h"
-#include "cgame.h"
 #include "canimal.h"
+#include "cvehicle.h"
+#include "cpeople.h"
+#include "cgame.h"
 	
 using namespace std;
 
-#endif headerh
+#endif 

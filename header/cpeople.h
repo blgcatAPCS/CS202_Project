@@ -14,5 +14,5 @@ public:
     bool isImpact(const CANIMAL*&);
     bool isFinish();
     bool isDead();
-}
+};
 #endif
