@@ -21,8 +21,8 @@ public:
     // void saveGame(istream); // Thực hiện lưu lại dữ liệu trò chơi
     void pauseGame(HANDLE); // Tạm dừng Thread
     void resumeGame(HANDLE); //Quay lai Thread
-    void updatePosPeople(char); //Thực hiện điều khiển di chuyển của CPEOPLE
-    void updatePosVehicle(); //Thực hiện cho CTRUCK & CCAR di chuyển (code thao tác của object)
-    void updatePosAnimal();//Thực hiện cho CDINAUSOR & CBIRD di chuyển (code thao tác của object)
+    void updatePosPeople(char); //Thực hiện điều khiển di chuyển của CPEOPLE // Cat in charge
+    void updatePosVehicle(); //Thực hiện cho CTRUCK & CCAR di chuyển (code thao tác của object) //Tam
+    void updatePosAnimal();//Thực hiện cho CDINAUSOR & CBIRD di chuyển (code thao tác của object) //Tam
 };
 #endif 
