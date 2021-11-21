@@ -18,6 +18,7 @@
 #include "cvehicle.h"
 #include "cpeople.h"
 #include "cgame.h"
+#include "menu.h"
 	
 using namespace std;
 

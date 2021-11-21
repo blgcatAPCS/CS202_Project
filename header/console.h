@@ -6,7 +6,7 @@ void setConsoleWindow(int w, int h);
 int wherex();
 int wherey();
 void gotoXY(int column, int line);
-void Textcolor(int color);
+void textColor(int color);
 void clrscr();
 void hidePointer();
 void unhidePointer();

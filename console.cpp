@@ -37,7 +37,7 @@ void gotoXY(int column, int line)
     coord.Y = line;
     SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE), coord);
 }
-void Textcolor(int color)
+void textColor(int color)
 {
     SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), color);
 }
