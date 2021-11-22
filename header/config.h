@@ -2,7 +2,7 @@
 #define configh
 #include "header.h"
 // Define 
-const int consoleWidth = 142, consoleHeight = 35;
+const int consoleWidth = 120, consoleHeight = 30;
 //Move
 #define UP				72
 #define DOWN			80

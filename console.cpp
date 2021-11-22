@@ -71,6 +71,36 @@ void unhidePointer()
 	SetConsoleCursorInfo(GetStdHandle(STD_OUTPUT_HANDLE), &Info);
 }
 
+void boardGame() { //!!have no decoration
+    textColor(255);
+    gotoXY(0, 0);
+    for (int i = 0; i < (120 * 5); ++i) {
+        cout << ".";
+    }
+
+    gotoXY(0, 6);
+    for (int i = 0; i < (120 * 6); ++i) {
+        cout << ".";
+    }
+
+    gotoXY(0, 13);
+    for (int i = 0; i < (120 * 5); ++i) {
+        cout << ".";
+    }
+
+    gotoXY(0, 19);
+    for (int i = 0; i < (120 * 6); ++i) {
+        cout << ".";
+    }
+
+    gotoXY(0, 26);
+    for (int i = 0; i < (120 * 4 - 32); ++i) {
+        cout << ".";
+    }
+
+    //system("pause");
+}
+
 //offset is the deviation from the original position
 void drawDinasour(int offset, int x, int y, bool isReverse){
     int height = 3;
