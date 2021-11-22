@@ -10,6 +10,7 @@
 #include <iomanip>
 #include <string>
 #include <fstream>
+#include <vector>
 //Local header file
 #include "config.h"
 #include "console.h"
