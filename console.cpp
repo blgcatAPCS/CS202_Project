@@ -71,34 +71,80 @@ void unhidePointer()
 	SetConsoleCursorInfo(GetStdHandle(STD_OUTPUT_HANDLE), &Info);
 }
 
-void boardGame() { //!!have no decoration
-    textColor(255);
-    gotoXY(0, 0);
+void boardGame() {
+    //grass
+    textColor(34);
     for (int i = 0; i < (120 * 5); ++i) {
         cout << ".";
     }
 
-    gotoXY(0, 6);
-    for (int i = 0; i < (120 * 6); ++i) {
+    //road
+    textColor(0);
+    for (int i = 0; i < (120 * 2); ++i) {
         cout << ".";
     }
 
-    gotoXY(0, 13);
-    for (int i = 0; i < (120 * 5); ++i) {
+    textColor(14);
+    for (int i = 0; i < (60 * 1); ++i) {
+        cout << "_ ";
+    }
+
+    textColor(0);
+    for (int i = 0; i < (120 * 3); ++i) {
         cout << ".";
     }
 
-    gotoXY(0, 19);
-    for (int i = 0; i < (120 * 6); ++i) {
+    //water
+    textColor(153);
+    for (int i = 0; i < (120 * 4); ++i) {
+        cout << ".";
+    }
+    textColor(146);
+    for (int i = 0; i < (120 * 1); ++i) {
+        cout << char(220);
+    }
+
+    //grass
+    textColor(34);
+    for (int i = 0; i < (120 * 4); ++i) {
+        cout << ".";
+    }
+    
+    //road
+    textColor(0);
+    for (int i = 0; i < (120 * 2); ++i) {
         cout << ".";
     }
 
-    gotoXY(0, 26);
-    for (int i = 0; i < (120 * 4 - 32); ++i) {
+    textColor(14);
+    for (int i = 0; i < (60 * 1); ++i) {
+        cout << "_ ";
+    }
+
+    textColor(0);
+    for (int i = 0; i < (120 * 3); ++i) {
         cout << ".";
     }
 
-    //system("pause");
+    //grass
+    textColor(34);
+    for (int i = 0; i < (120 * 4); ++i) {
+        cout << ".";
+    }
+
+    textColor(47);
+    drawDinasour(0, 0, 1, false);
+
+    drawBird(0, 0, 16, false);
+
+    textColor(158);
+    drawDuck(0, 0, 11, false);
+
+    textColor(15);
+    drawCar(0, 0, 5, false);
+
+    drawTruck(0, 0, 20, true);
+    getch();
 }
 
 //offset is the deviation from the original position
@@ -329,6 +375,72 @@ void drawTruck(int offset, int x, int y, bool isReverse){
         " ______||__||_\\ ",
         "| - - -| _,= + ]",
         " ``(@)-----(@)``"
+        };
+    }
+
+    string* visual = visuals[(abs(offset)) % frames];
+
+    if (x + offset >= consoleWidth)
+        return;
+
+    for (int i = 0; i < height; ++i) {
+        gotoXY(max(x + offset, 0), y + i);
+
+        for (int j = max(-x - offset, 0); j < width && x + offset + j < consoleWidth; ++j) {
+            cout << visual[i][j];
+        }
+    }
+}
+
+void drawDuck(int offset, int x, int y, bool isReverse) {
+    int height = 3;
+    int width = 7;
+    int frames, start;
+    vector<string*> visuals;
+    //if the dinasour goes from Right -> Left = !isReverse
+    //else isReverse
+    if (!isReverse) {
+        frames = 3;
+        visuals.assign(frames, nullptr);
+
+        visuals[0] = new string[height]{
+        "    _  ",
+        " __(o)=",
+        "\\____) "
+        };
+
+        visuals[1] = new string[height]{
+        "    _  ",
+        " __(*)>",
+        "\\____) "
+        };
+
+        visuals[2] = new string[height]{
+        "    _  ",
+        " __(o)<",
+        "\\____) "
+        };
+    }
+    else {
+        frames = 3;
+        visuals.assign(frames, nullptr);
+
+        visuals[0] = new string[height]{
+        "  _    ",
+        "=(o)__ ",
+        " (____/"
+        };
+
+        visuals[1] = new string[height]{
+        "  _    ",
+        "<(o)__ ",
+        " (____/"
+        };
+
+        visuals[2] = new string[height]{
+        "  _    ",
+        ">(o)__ ",
+        " (____/"
         };
     }
 

@@ -15,6 +15,7 @@ void drawDinasour(int offset, int x, int y, bool isReverse);
 void drawBird(int offset, int x, int y, bool isReverse);
 void drawCar(int offset, int x, int y, bool isReverse);
 void drawTruck(int offset, int x, int y, bool isReverse);
+void drawDuck(int offset, int x, int y, bool isReverse);
 bool isInConsoleWidth(int y);
 void clear(int offset, bool isReverse, int height, int width, int x, int y);
 #endif
