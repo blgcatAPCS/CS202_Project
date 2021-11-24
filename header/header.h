@@ -20,6 +20,7 @@
 #include "cpeople.h"
 #include "cgame.h"
 #include "menu.h"
+#include "cposition.h"
 	
 using namespace std;
 
