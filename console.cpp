@@ -483,3 +483,12 @@ void clear(int offset, bool isReverse, int height, int width, int x, int y) {
         }
     }
 }
+
+void clear_all(int offset, int height, int width, int x, int y){
+    for(int i = 0; i < height; ++i){
+        for(int j = 0; j < width; ++j){
+            gotoXY(x + offset + j, y + i);
+            cout << ' ';
+        }
+    }
+}
