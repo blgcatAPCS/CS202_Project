@@ -51,7 +51,7 @@ void CANIMAL::draw(int offset, int x, int y, bool isReverse)
 
 void CDINOSAUR::draw(int offset, int x, int y, bool isReverse)
 {
-    drawDinasour(offset, x, y, isReverse);
+    drawDinosaur(offset, x, y, isReverse);
 }
 void CDINOSAUR::Tell()
 {
@@ -117,7 +117,7 @@ int CDUCK::getWidth()
 }
 int CDUCK::getType()
 {
-    return 0;
+    return 3;
 }
 CDUCK::~CDUCK()
 {

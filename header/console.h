@@ -11,7 +11,7 @@ void clrscr();
 void hidePointer();
 void unhidePointer();
 void boardGame();
-void drawDinasour(int offset, int x, int y, bool isReverse);
+void drawDinosaur(int offset, int x, int y, bool isReverse);
 void drawBird(int offset, int x, int y, bool isReverse);
 void drawCar(int offset, int x, int y, bool isReverse);
 void drawTruck(int offset, int x, int y, bool isReverse);

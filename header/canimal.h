@@ -47,5 +47,5 @@ public:
 	int getWidth();
 	int getType();
 	~CDUCK();
-}
+};
 #endif 

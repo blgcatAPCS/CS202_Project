@@ -133,7 +133,7 @@ void boardGame() {
     }
 
     textColor(47);
-    drawDinasour(0, 0, 1, false);
+    drawDinosaur(0, 0, 1, false);
 
     drawBird(0, 0, 16, false);
 
@@ -148,7 +148,7 @@ void boardGame() {
 }
 
 //offset is the deviation from the original position
-void drawDinasour(int offset, int x, int y, bool isReverse){
+void drawDinosaur(int offset, int x, int y, bool isReverse){
     int height = 3;
     int width = 7;
     string* visual;

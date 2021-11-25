@@ -4,7 +4,7 @@
 class CGAME{
 CTRUCK* axt;
 CCAR* axh;
-CDINAUSOR* akl;
+CDINOSAUR* akl;
 CBIRD* ac;
 CPEOPLE cn;
 public:
@@ -22,7 +22,7 @@ public:
     void pauseGame(HANDLE); // Tạm dừng Thread
     void resumeGame(HANDLE); //Quay lai Thread
     void updatePosPeople(char); //Thực hiện điều khiển di chuyển của CPEOPLE // Cat in charge
-    void updatePosVehicle(); //Thực hiện cho CTRUCK & CCAR di chuyển (code thao tác của object) //Tam
-    void updatePosAnimal();//Thực hiện cho CDINAUSOR & CBIRD di chuyển (code thao tác của object) //Tam
+    void updatePosVehicle(int type, int y, int v, bool isReverse); //Thực hiện cho CTRUCK & CCAR di chuyển (code thao tác của object) //Tam
+    void updatePosAnimal(int type, int y, int v, bool isReverse);//Thực hiện cho CDINAUSOR & CBIRD di chuyển (code thao tác của object) //Tam
 };
 #endif 
