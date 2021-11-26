@@ -5,13 +5,12 @@ class CPEOPLE{
     int mX, mY;
     bool mState; //Trạng thái sống chết
 public:
-    CPEOPLE();
+    //CPEOPLE();
     void Up(int);
     void Left(int);
     void Right(int);
     void Down(int);
-    bool isImpact(const CVEHICLE*&);
-    bool isImpact(const CANIMAL*&);
+    bool isImpact(const OBSTACLE*&);
     bool isFinish();
     bool isDead();
 };

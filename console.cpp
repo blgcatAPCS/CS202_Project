@@ -132,19 +132,19 @@ void boardGame() {
         cout << ".";
     }
 
-    textColor(47);
-    drawDinosaur(0, 0, 1, false);
+    // textColor(47);
+    // drawDinosaur(0, 0, 1, false);
 
-    drawBird(0, 0, 16, false);
+    // drawBird(0, 0, 16, false);
 
-    textColor(158);
-    drawDuck(0, 0, 11, false);
+    // textColor(158);
+    // drawDuck(0, 0, 11, false);
 
-    textColor(15);
-    drawCar(0, 0, 5, false);
+    // textColor(15);
+    // drawCar(0, 0, 5, false);
 
-    drawTruck(0, 0, 20, true);
-    getch();
+    // drawTruck(0, 0, 20, true);
+    // getch();
 }
 
 //offset is the deviation from the original position
@@ -321,7 +321,7 @@ void drawCar(int offset, int x, int y, bool isReverse){
 }
 
 void drawTruck(int offset, int x, int y, bool isReverse){
-        int height = 4;
+    int height = 4;
     int width = 16;
     int frames, start;
     vector<string*> visuals;

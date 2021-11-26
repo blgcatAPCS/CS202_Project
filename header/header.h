@@ -15,13 +15,13 @@
 #include "config.h"
 #include "console.h"
 #include "ctraffic.h"
-#include "cposition.h"
+#include "cobstacle.h"
 #include "canimal.h"
 #include "cvehicle.h"
 #include "cpeople.h"
+#include "clane.h"
 #include "cgame.h"
 #include "menu.h"
-
 	
 using namespace std;
 

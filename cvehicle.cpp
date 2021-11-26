@@ -1,88 +1,148 @@
 #include "header/header.h"
 
-cPosition CVEHICLE::getPos()
-{
-    return point;
-}
-int CVEHICLE::getX()
-{
-    return point.getX();
-}
-int CVEHICLE::getY()
-{
-    return point.getY();
-}
-CVEHICLE::CVEHICLE() : outMap(false)
-{
+CTRUCK::CTRUCK(int x, int y, bool isReverse)
+: OBSTACLE(x, y, isReverse, height, width){
+    if (!isReverse) {
+        frames = 3;
+        visuals.assign(frames, nullptr);
+        
+        visuals[0] = new string[height]{
+        "        ______  ",
+        " ______||__||_\\ ",
+        "| - - -| _,= + ]",
+        " ``(@)-----(@)``"
+        };
 
-}
-CVEHICLE::CVEHICLE(cPosition po) : point(po), outMap(false)
-{
+        visuals[1] = new string[height]{
+        "        ______  ",
+        " ______||__||_\\ ",
+        "| - - -| _,= + ]",
+        " ``(0)-----(0)``"
+        };
 
-}
-void CVEHICLE::updatePosition(int dx, int dy)
-{
-    point.setPos(point.getX()+dx, point.getY()+dy);
-}
-bool CVEHICLE::isOutOfMap()
-{
-    return outMap;
-}
-void CVEHICLE::goOutMap()
-{
-    outMap = true;
-}
-int CVEHICLE::getWidth()
-{
-    return 11;
-}
-int CVEHICLE::getHeight()
-{
-    return 4;
-}
-void CVEHICLE::draw(int offset, int x, int y, bool isReverse)
-{
+        visuals[2] = new string[height]{
+        "        ______  ",
+        " ______||__||_\\ ",
+        "| - - -| _,= + ]",
+        " ``(@)-----(@)``"
+        };
+        
+    }
+    else {
+        frames = 3;
+        visuals.assign(frames, nullptr);
 
-}
+        visuals[0] = new string[height]{
+        "  ______        ",
+        " /_||__||______ ",
+        "[ + =,_ |- - - |",
+        " ``(@)-----(@)``"
+        };
 
-void CTRUCK::draw(int offset, int x, int y, bool isReverse)
-{
-    drawTruck(offset, x, y, isReverse);
-}
-int CTRUCK::getHeight()
-{
-    return 4;
-}
-int CTRUCK::getWidth()
-{
-    return 16;
-}
-int CTRUCK::getType()
-{
-    return 4;
-}
-CTRUCK::~CTRUCK()
-{
+        visuals[1] = new string[height]{
+        "  ______        ",
+        " /_||__||______ ",
+        "[ + =,_ |- - - |",
+        " ``(0)-----(0)``"
+        };
 
+        visuals[2] = new string[height]{
+        "  ______        ",
+        " /_||__||______ ",
+        "[ + =,_ |- - - |",
+        " ``(@)-----(@)``"
+        };
+    }
 }
 
-void CCAR::draw(int offset, int x, int y, bool isReverse)
-{
-    drawCar(offset, x, y, isReverse);
+OBSTACLE* CTRUCK::create(int x, int y, bool isReverse){
+    return new CTRUCK(x, y, isReverse);
 }
-int CCAR::getHeight()
-{
-    return 4;
+
+void CTRUCK::draw(const int &offset){
+    visual = visuals[abs(offset) % frames];
+    OBSTACLE::draw(offset);
 }
-int CCAR::getWidth()
-{
-    return 11;
+
+void CTRUCK::clear(const int &offset){
+    visual = visuals[abs(offset) % frames];
+    OBSTACLE::clear(offset);
 }
-int CCAR::getType()
-{
-    return 1;
+
+CTRUCK::~CTRUCK(){
+    for (string*& visual : visuals)
+        delete[] visual;
 }
-CCAR::~CCAR()
-{
-    
+
+CCAR::CCAR(int x, int y, bool isReverse)
+: OBSTACLE(x, y, isReverse, height, width){
+    if (!isReverse) {
+        frames = 3;
+        visuals.assign(frames, nullptr);
+
+        visuals[0] = new string[height]{
+        "   _____   ",
+        " ./ [ ]L\\_ ",
+        "[''''\\|  =\\",
+        " \"(x)--(x)\""
+        };
+
+        visuals[1] = new string[height]{
+        "   _____   ",
+        " ./ [ ]L\\_ ",
+        "[''''\\|  =\\",
+        " \"(+)--(+)\""
+        };
+
+        visuals[2] = new string[height]{
+        "   _____   ",
+        " ./ [ ]L\\_ ",
+        "[''''\\|  =\\",
+        " \"(x)--(x)\""
+        };
+    }
+    else {
+        frames = 3;
+        visuals.assign(frames, nullptr);
+
+        visuals[0] = new string[height]{
+        "   _____   ",
+        {' ', '_', '/', char(217), '[',' ' ,']', ' ', '\\','.', ' '},
+        "/=  |/'''']",
+        "\"(x)--(x)\" "
+        };
+
+        visuals[1] = new string[height]{
+        "   _____   ",
+        {' ', '_', '/', char(217), '[',' ' ,']', ' ', '\\','.', ' '},
+        "/=  |/'''']",
+        "\"(+)--(+)\" "
+        };
+
+        visuals[2] = new string[height]{
+        "   _____   ",
+        {' ', '_', '/', char(217), '[',' ' ,']', ' ', '\\','.', ' '},
+        "/=  |/'''']",
+        "\"(x)--(x)\" "
+        };
+    }
+}
+
+OBSTACLE* CCAR::create(int x, int y, bool isReverse){
+    return new CCAR(x, y, isReverse);
+}
+
+void CCAR::draw(const int &offset){
+    visual = visuals[abs(offset) % frames];
+    OBSTACLE::draw(offset);
+}
+
+void CCAR::clear(const int &offset){
+    visual = visuals[abs(offset) % frames];
+    OBSTACLE::clear(offset);
+}
+
+CCAR::~CCAR(){
+    for (string*& visual : visuals)
+        delete[] visual;
 }

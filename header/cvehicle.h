@@ -1,39 +1,38 @@
 #ifndef cvehicleh
 #define cvehicleh
 #include "header.h"
-class CVEHICLE{
-    cPosition point;
-    bool outMap;
+
+using namespace std;
+
+class CTRUCK: public OBSTACLE{
+private:
+    int frames;
+    vector<string*> visuals;
 public:
-    cPosition getPos();
-	int getX();
-	int getY();
-	CVEHICLE();
-	CVEHICLE(cPosition st); // create new enemy with starting position
-	virtual ~CVEHICLE() = default;
-	virtual int getType() = 0;
-	void updatePosition(int dx, int dy);
-	bool isOutOfMap();
-	void goOutMap();
-	virtual int getWidth();
-	virtual int getHeight();
-    //virtual void Move(int, int);
-    virtual void draw(int offset, int x, int y, bool isReverse);
-};
-class CTRUCK: public CVEHICLE{
-public:
-    void draw(int offset, int x, int y, bool isReverse);
-    int getHeight();
-	int getWidth();
-	int getType();
+	static const int height = 4;
+    static const int width = 16;
+
+	CTRUCK(int x = 0, int y = 0, bool isReverse = false);
+	OBSTACLE* create(int x = 0, int y = 0, bool isReverse = false);
+	void draw(const int &offset);
+	void clear(const int &offset);
+	//void Tell();
 	~CTRUCK();
 };
-class CCAR: public CVEHICLE{
+
+class CCAR: public OBSTACLE{
+private:
+    int frames;
+    vector<string*> visuals;
 public:
-    void draw(int offset, int x, int y, bool isReverse);
-    int getHeight();
-	int getWidth();
-	int getType();
+	static const int height = 4;
+    static const int width = 11;
+
+	CCAR(int x = 0, int y = 0, bool isReverse = false);
+	OBSTACLE* create(int x = 0, int y = 0, bool isReverse = false);
+	void draw(const int &offset);
+	void clear(const int &offset);
+	//void Tell();
 	~CCAR();
 };
 #endif

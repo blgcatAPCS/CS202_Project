@@ -2,18 +2,15 @@
 #define cgameh
 #include "header.h"
 class CGAME{
-CTRUCK* axt;
-CCAR* axh;
-CDINOSAUR* akl;
-CBIRD* ac;
+vector<LANE*> lanes;
 CPEOPLE cn;
 public:
     CGAME(); //Chuẩn bị dữ liệu cho tất cả các đối tượng
     void drawGame(); //Thực hiện vẽ trò chơi ra màn hình sau khi có dữ liệu
     ~CGAME(); // Hủy tài nguyên đã cấp phát
     CPEOPLE getPeople();//Lấy thông tin người
-    CVEHICLE* getVehicle();//Lấy danh sách các xe
-    CANIMAL* getAnimal(); //Lấy danh sách các thú
+    //CVEHICLE* getVehicle();//Lấy danh sách các xe
+    //CANIMAL* getAnimal(); //Lấy danh sách các thú
     void resetGame(); // Thực hiện thiết lập lại toàn bộ dữ liệu như lúc đầu
     void exitGame(HANDLE); // Thực hiện thoát Thread
     void startGame(); // Thực hiện bắt đầu vào trò chơi
@@ -22,7 +19,6 @@ public:
     void pauseGame(HANDLE); // Tạm dừng Thread
     void resumeGame(HANDLE); //Quay lai Thread
     void updatePosPeople(char); //Thực hiện điều khiển di chuyển của CPEOPLE // Cat in charge
-    void updatePosVehicle(int type, int y, int v, bool isReverse); //Thực hiện cho CTRUCK & CCAR di chuyển (code thao tác của object) //Tam
-    void updatePosAnimal(int type, int y, int v, bool isReverse);//Thực hiện cho CDINAUSOR & CBIRD di chuyển (code thao tác của object) //Tam
+    void moveObstacles();
 };
 #endif 

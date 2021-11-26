@@ -4,11 +4,15 @@ char MOVING;
 // CGAME cg;
 int main()
 {
-    cout<<1;
-    system("Pause");
-    // cg = new CGAME();
-    int temp;
+    // cout<<1;
+    // system("Pause");
+    // // cg = new CGAME();
+    // int temp;
     fixConsoleWindow();
+    CGAME g;
+    while(1){
+        g.moveObstacles();
+    }
     // cg.startGame();
     // thread t1(SubThread);
     // while (1)

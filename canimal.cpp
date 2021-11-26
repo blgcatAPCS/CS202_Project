@@ -1,125 +1,157 @@
 #include "header/header.h"
 
-cPosition CANIMAL::getPos()
-{
-    return point;
-}
-int CANIMAL::getX()
-{
-    return point.getX();
-}
-int CANIMAL::getY()
-{
-    return point.getY();
-}
-CANIMAL::CANIMAL() : outMap(false)
-{
-
-}
-CANIMAL::CANIMAL(cPosition po) : point(po), outMap(false)
-{
-
-}
-void CANIMAL::updatePosition(int dx, int dy)
-{
-    point.setPos(point.getX()+dx, point.getY()+dy);
-}
-bool CANIMAL::isOutOfMap()
-{
-    return outMap;
-}
-void CANIMAL::goOutMap()
-{
-    outMap = true;
-}
-int CANIMAL::getWidth()
-{
-    return 7;
-}
-int CANIMAL::getHeight()
-{
-    return 3;
-}
-void CANIMAL::Tell()
-{
-
-}
-void CANIMAL::draw(int offset, int x, int y, bool isReverse)
-{
-
+CDINOSAUR::CDINOSAUR(int x, int y, bool isReverse)
+: OBSTACLE(x, y, isReverse, height, width){
+    if (!isReverse) {
+        visual = new string[height]{
+        {' ', ' ', ' ', ' ', char(219), char(219), char(223)},
+        {' ', ' ', char(220), char(219), char(219), char(219), char(238)},
+        {char(196), char(223), char(223), char(219), char(223), char(219)}
+        };
+    }
+    else {
+        visual = new string[height]{
+            {char(223), char(219), char(219), ' ', ' ', ' ', ' '},
+            {char(238), char(219), char(219), char(219), char(220), ' ', ' '},
+            {' ', char(219), char(223), char(219), char(223), char(223), char(196)}
+        };
+    }
 }
 
-void CDINOSAUR::draw(int offset, int x, int y, bool isReverse)
-{
-    drawDinosaur(offset, x, y, isReverse);
-}
-void CDINOSAUR::Tell()
-{
-    PlaySound ( TEXT ( ".mav" ) , NULL , SND_SYNC );
-}
-int CDINOSAUR::getHeight()
-{
-    return 3;
-}
-int CDINOSAUR::getWidth()
-{
-    return 7;
-}
-int CDINOSAUR::getType()
-{
-    return 2;
-}
-CDINOSAUR::~CDINOSAUR()
-{
-
+OBSTACLE* CDINOSAUR::create(int x, int y, bool isReverse){
+    return new CDINOSAUR(x, y, isReverse);
 }
 
-void CBIRD::draw(int offset, int x, int y, bool isReverse)
-{
-    drawBird(offset, x, y, isReverse);
-}
-void CBIRD::Tell()
-{
-    PlaySound ( TEXT ( ".mav" ) , NULL , SND_SYNC );
-}
-int CBIRD::getHeight()
-{
-    return 3;
-}
-int CBIRD::getWidth()
-{
-    return 7;
-}
-int CBIRD::getType()
-{
-    return 0;
-}
-CBIRD::~CBIRD()
-{
-    
+CBIRD::CBIRD(int x, int y, bool isReverse)
+: OBSTACLE(x, y, isReverse, height, width){
+    if (!isReverse) {
+        frames = 3;
+        visuals.assign(frames, nullptr);
+
+        visuals[0] = new string[height]{
+        " ___   ",
+        "/__o\\_ ",
+        "\\___/-'"
+        };
+
+        visuals[1] = new string[height]{
+        " ___   ",
+        "//\\o\\_ ",
+        "\\___/-'"
+        };
+
+        visuals[2] = new string[height]{
+        " ___   ",
+        "/__o\\_ ",
+        "\\___/-'"
+        };
+    }
+    else {
+        frames = 3;
+        visuals.assign(frames, nullptr);
+
+        visuals[0] = new string[height]{
+        "   ___ ",
+        " _/o__\\",
+        "'-\\___/"
+        };
+
+        visuals[1] = new string[height]{
+        "   ___ ",
+        " _/o/\\\\",
+        "'-\\___/"
+        };
+
+        visuals[2] = new string[height]{
+        "   ___ ",
+        " _/o__\\",
+        "'-\\___/"
+        };
+    }
 }
 
-void CDUCK::draw(int offset, int x, int y, bool isReverse)
-{
-    drawDuck(offset, x, y, isReverse);
+OBSTACLE* CBIRD::create(int x, int y, bool isReverse){
+    return new CBIRD(x, y, isReverse);
 }
-void CDUCK::Tell()
-{
-    PlaySound ( TEXT ( ".mav" ) , NULL , SND_SYNC );
+
+void CBIRD::draw(const int &offset){
+    visual = visuals[abs(offset) % frames];
+    OBSTACLE::draw(offset);
 }
-int CDUCK::getHeight()
-{
-    return 3;
+
+void CBIRD::clear(const int &offset){
+    visual = visuals[abs(offset) % frames];
+    OBSTACLE::clear(offset);
 }
-int CDUCK::getWidth()
-{
-    return 7;
+
+CBIRD::~CBIRD(){
+    for (string*& visual : visuals)
+        delete[] visual;
 }
-int CDUCK::getType()
-{
-    return 3;
+
+CDUCK::CDUCK(int x, int y, bool isReverse)
+: OBSTACLE(x, y, isReverse, height, width){
+    if (!isReverse) {
+        frames = 3;
+        visuals.assign(frames, nullptr);
+
+        visuals[0] = new string[height]{
+        "    _  ",
+        " __(o)=",
+        "\\____) "
+        };
+
+        visuals[1] = new string[height]{
+        "    _  ",
+        " __(o)>",
+        "\\____) "
+        };
+
+        visuals[2] = new string[height]{
+        "    _  ",
+        " __(o)<",
+        "\\____) "
+        };
+    }
+    else {
+        frames = 3;
+        visuals.assign(frames, nullptr);
+
+        visuals[0] = new string[height]{
+        "  _    ",
+        "=(o)__ ",
+        " (____/"
+        };
+
+        visuals[1] = new string[height]{
+        "  _    ",
+        "<(o)__ ",
+        " (____/"
+        };
+
+        visuals[2] = new string[height]{
+        "  _    ",
+        ">(o)__ ",
+        " (____/"
+        };
+    }
 }
-CDUCK::~CDUCK()
-{
-    
+
+OBSTACLE* CDUCK::create(int x, int y, bool isReverse){
+    return new CDUCK(x, y, isReverse);
+}
+
+void CDUCK::draw(const int &offset){
+    visual = visuals[abs(offset) % frames];
+    OBSTACLE::draw(offset);
+}
+
+void CDUCK::clear(const int &offset){
+    visual = visuals[abs(offset) % frames];
+    OBSTACLE::clear(offset);
+}
+
+CDUCK::~CDUCK(){
+    for (string*& visual : visuals)
+        delete[] visual;
 }

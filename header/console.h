@@ -1,6 +1,7 @@
 #ifndef consoleh
 #define consoleh
 #include "header.h"
+
 void fixConsoleWindow();
 void setConsoleWindow(int w, int h);
 int wherex();
@@ -19,4 +20,5 @@ void drawDuck(int offset, int x, int y, bool isReverse);
 bool isInConsoleWidth(int y);
 void clear(int offset, bool isReverse, int height, int width, int x, int y);
 void clear_all(int offset, int height, int width, int x, int y);
+void move();
 #endif
