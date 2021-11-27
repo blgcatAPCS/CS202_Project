@@ -1,6 +1,7 @@
 #include "header/header.h"
 
 CGAME::CGAME(){
+    cn = new CPEOPLE(60,26);
     OBSTACLE* truck = new CTRUCK();
     OBSTACLE* car = new CCAR();
     OBSTACLE* duck = new CDUCK();

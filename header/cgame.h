@@ -3,7 +3,7 @@
 #include "header.h"
 class CGAME{
 vector<LANE*> lanes;
-CPEOPLE cn;
+CPEOPLE *cn;
 public:
     CGAME(); //Chuẩn bị dữ liệu cho tất cả các đối tượng
     void drawGame(); //Thực hiện vẽ trò chơi ra màn hình sau khi có dữ liệu
