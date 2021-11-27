@@ -80,17 +80,7 @@ void boardGame() {
 
     //road
     textColor(0);
-    for (int i = 0; i < (120 * 2); ++i) {
-        cout << ".";
-    }
-
-    textColor(14);
-    for (int i = 0; i < (60 * 1); ++i) {
-        cout << "_ ";
-    }
-
-    textColor(0);
-    for (int i = 0; i < (120 * 3); ++i) {
+    for (int i = 0; i < (120 * 6); ++i) {
         cout << ".";
     }
 
@@ -112,17 +102,7 @@ void boardGame() {
     
     //road
     textColor(0);
-    for (int i = 0; i < (120 * 2); ++i) {
-        cout << ".";
-    }
-
-    textColor(14);
-    for (int i = 0; i < (60 * 1); ++i) {
-        cout << "_ ";
-    }
-
-    textColor(0);
-    for (int i = 0; i < (120 * 3); ++i) {
+    for (int i = 0; i < (120 * 6); ++i) {
         cout << ".";
     }
 
@@ -144,7 +124,7 @@ void boardGame() {
     // drawCar(0, 0, 5, false);
 
     // drawTruck(0, 0, 20, true);
-    // getch();
+    //getch();
 }
 
 //offset is the deviation from the original position

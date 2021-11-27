@@ -11,6 +11,8 @@ public:
 
 	CDINOSAUR(int x = 0, int y = 0, bool isReverse = false);
 	OBSTACLE* create(int x = 0, int y = 0, bool isReverse = false);
+	void draw(const int &offset);
+	void clear(const int &offset);
 	//void Tell();
 };
 

@@ -22,6 +22,16 @@ OBSTACLE* CDINOSAUR::create(int x, int y, bool isReverse){
     return new CDINOSAUR(x, y, isReverse);
 }
 
+void CDINOSAUR::draw(const int &offset){
+    textColor(47);
+    OBSTACLE::draw(offset);
+}
+
+void CDINOSAUR::clear(const int &offset){
+    textColor(34);
+    OBSTACLE::clear(offset);
+}
+
 CBIRD::CBIRD(int x, int y, bool isReverse)
 : OBSTACLE(x, y, isReverse, height, width){
     if (!isReverse) {
@@ -76,11 +86,13 @@ OBSTACLE* CBIRD::create(int x, int y, bool isReverse){
 
 void CBIRD::draw(const int &offset){
     visual = visuals[abs(offset) % frames];
+    textColor(47);
     OBSTACLE::draw(offset);
 }
 
 void CBIRD::clear(const int &offset){
     visual = visuals[abs(offset) % frames];
+    textColor(34);
     OBSTACLE::clear(offset);
 }
 
@@ -143,11 +155,13 @@ OBSTACLE* CDUCK::create(int x, int y, bool isReverse){
 
 void CDUCK::draw(const int &offset){
     visual = visuals[abs(offset) % frames];
+    textColor(158);
     OBSTACLE::draw(offset);
 }
 
 void CDUCK::clear(const int &offset){
     visual = visuals[abs(offset) % frames];
+    textColor(153);
     OBSTACLE::clear(offset);
 }
 

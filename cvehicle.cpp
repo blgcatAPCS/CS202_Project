@@ -61,11 +61,13 @@ OBSTACLE* CTRUCK::create(int x, int y, bool isReverse){
 
 void CTRUCK::draw(const int &offset){
     visual = visuals[abs(offset) % frames];
+    textColor(15);
     OBSTACLE::draw(offset);
 }
 
 void CTRUCK::clear(const int &offset){
     visual = visuals[abs(offset) % frames];
+    textColor(0);
     OBSTACLE::clear(offset);
 }
 
@@ -134,11 +136,13 @@ OBSTACLE* CCAR::create(int x, int y, bool isReverse){
 
 void CCAR::draw(const int &offset){
     visual = visuals[abs(offset) % frames];
+    textColor(15);
     OBSTACLE::draw(offset);
 }
 
 void CCAR::clear(const int &offset){
     visual = visuals[abs(offset) % frames];
+    textColor(0);
     OBSTACLE::clear(offset);
 }
 

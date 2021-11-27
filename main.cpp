@@ -9,6 +9,7 @@ int main()
     // // cg = new CGAME();
     // int temp;
     fixConsoleWindow();
+    boardGame();
     CGAME g;
     while(1){
         g.moveObstacles();
