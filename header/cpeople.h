@@ -6,6 +6,7 @@ private:
     int mX, mY;
     bool mState; //Trạng thái sống chết
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
     const unsigned int velocity = 5;
 public:
     //CPEOPLE();
@@ -18,6 +19,13 @@ public:
 
 public:
     CPEOPLE(int x = 0, int y = 0, int v=5);
+=======
+    int velocity;
+    const int finishedY;
+
+public:
+    CPEOPLE(int x = 0, int y = 0, int finY, int v=5);
+>>>>>>> Stashed changes
     void Up(int);
     void Left(int);
     void Right(int);
