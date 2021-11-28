@@ -15,6 +15,7 @@ public:
 	void set(bool status, int time);
 	void changeStatus();
 	void updateTime(int a); //// (MAX_TIME-a) is a time to stop red light
+	void draw();
 };
 
 #endif

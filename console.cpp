@@ -112,6 +112,39 @@ void boardGame() {
         cout << ".";
     }
 
+    //border
+    gotoXY(5, 29);
+    textColor(47);
+    cout << char(219);
+
+    gotoXY(5, 28);
+    textColor(47);
+    cout << char(219);
+
+    gotoXY(5, 27);
+    textColor(47);
+    cout << char(220);
+
+    gotoXY(6, 27);
+    textColor(47);
+    cout << char(220);
+
+    gotoXY(7, 27);
+    textColor(47);
+    cout << char(220);
+
+    gotoXY(8, 27);
+    textColor(47);
+    cout << char(220);
+
+    gotoXY(8, 29);
+    textColor(47);
+    cout << char(219);
+    
+    gotoXY(8, 28);
+    textColor(47);
+    cout << char(219);
+
     // textColor(47);
     // drawDinosaur(0, 0, 1, false);
 
