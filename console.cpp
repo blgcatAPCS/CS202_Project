@@ -107,57 +107,50 @@ void boardGame() {
     }
 
     //grass
-    // textColor(34);
-    // for (int i = 0; i < (120 * 4); ++i) {
-    //     cout << ".";
-    // }
+    textColor(238);
+    for (int i = 0; i < (120 * 4); ++i) {
+        cout << ".";
+    }
 
     //border
+    textColor(0);
     gotoXY(5, 29);
-    textColor(47);
     cout << char(219);
 
     gotoXY(5, 28);
-    textColor(47);
     cout << char(219);
 
-    gotoXY(5, 27);
-    textColor(47);
-    cout << char(220);
-
-    gotoXY(6, 27);
-    textColor(47);
-    cout << char(220);
-
-    gotoXY(7, 27);
-    textColor(47);
-    cout << char(220);
-
-    gotoXY(8, 27);
-    textColor(47);
-    cout << char(220);
-
     gotoXY(8, 29);
-    textColor(47);
     cout << char(219);
     
     gotoXY(8, 28);
-    textColor(47);
     cout << char(219);
 
-    // textColor(47);
-    // drawDinosaur(0, 0, 1, false);
+    textColor(224);
+    gotoXY(5, 27);
+    cout << char(220);
 
-    // drawBird(0, 0, 16, false);
+    gotoXY(6, 27);
+    cout << char(220);
 
-    // textColor(158);
-    // drawDuck(0, 0, 11, false);
+    gotoXY(7, 27);
+    cout << char(220);
 
-    // textColor(15);
-    // drawCar(0, 0, 5, false);
+    gotoXY(8, 27);
+    cout << char(220);
 
-    // drawTruck(0, 0, 20, true);
-    //getch();
+    textColor(254);
+    for(int i = 0; i < 2; ++i){
+        gotoXY(6 + i, 28);
+        cout << char(219);
+    }
+    textColor(170);
+    for(int i = 0; i < 2; ++i){
+        gotoXY(6 + i, 29);
+        cout << char(219);
+    }
+
+    textColor(224);
 }
 
 //offset is the deviation from the original position

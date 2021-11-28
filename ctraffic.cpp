@@ -46,7 +46,7 @@ void cTraffic::changeStatus()
 void cTraffic::draw(){
 	//color
 	if(m_status == true){
-		textColor(68);
+		textColor(284);
 		for(int i = 0; i < 2; ++i){
 			gotoXY(6 + i, 28);
 			cout << char(219);
@@ -63,7 +63,7 @@ void cTraffic::draw(){
 			gotoXY(6 + i, 28);
 			cout << char(219);
 		}
-		textColor(34);
+		textColor(170);
 		for(int i = 0; i < 2; ++i){
 			gotoXY(6 + i, 29);
 			cout << char(219);

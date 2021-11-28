@@ -26,7 +26,7 @@ CGAME::~CGAME(){
 }
 
 void CGAME::moveObstacles(){
-    traffic.updateTime(10000000);
+    traffic.updateTime(20000000);
     if (traffic.getStatus() == false)
     {
         for (LANE*& lane : lanes)
