@@ -1,7 +1,7 @@
 #ifndef ctraffich
 #define ctraffich
 #include "header.h"
-#define MAX_TIME 15
+#define MAX_TIME 50000000
 
 class cTraffic
 {
@@ -14,7 +14,7 @@ public:
 	int getTime();
 	void set(bool status, int time);
 	void changeStatus();
-	void updateTime();
+	void updateTime(int a); //// (MAX_TIME-a) is a time to stop red light
 };
 
 #endif

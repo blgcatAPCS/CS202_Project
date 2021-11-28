@@ -10,7 +10,7 @@ void cTraffic::set(bool status, int time)
 	m_status = status;
 	m_time = time;
 }
-void cTraffic::updateTime()
+void cTraffic::updateTime(int a)
 {
 	m_time++;
 	if (m_time == MAX_TIME)
@@ -18,7 +18,7 @@ void cTraffic::updateTime()
 		this->changeStatus();
 		if (m_status == true)
 		{
-			m_time = 8;
+			m_time = a;
 		}
 		else
 		{
