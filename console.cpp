@@ -107,10 +107,10 @@ void boardGame() {
     }
 
     //grass
-    textColor(34);
-    for (int i = 0; i < (120 * 4); ++i) {
-        cout << ".";
-    }
+    // textColor(34);
+    // for (int i = 0; i < (120 * 4); ++i) {
+    //     cout << ".";
+    // }
 
     //border
     gotoXY(5, 29);

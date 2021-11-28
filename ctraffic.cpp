@@ -16,6 +16,7 @@ void cTraffic::updateTime(int a)
 	if (m_time == MAX_TIME)
 	{
 		this->changeStatus();
+		draw();
 		if (m_status == true)
 		{
 			m_time = a;
@@ -50,14 +51,14 @@ void cTraffic::draw(){
 			gotoXY(6 + i, 28);
 			cout << char(219);
 		}
-		textColor(170);
+		textColor(254);
 		for(int i = 0; i < 2; ++i){
 			gotoXY(6 + i, 29);
 			cout << char(219);
 		}
 	}
 	else{
-		textColor(204);
+		textColor(254);
 		for(int i = 0; i < 2; ++i){
 			gotoXY(6 + i, 28);
 			cout << char(219);
