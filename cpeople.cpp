@@ -1,5 +1,7 @@
 #include "header/header.h"
 
+using namespace std;
+
 CPEOPLE::CPEOPLE(int x, int y, int v, int yFin)
 : mX(x), mY(y), mState(1), velocity(v), yFinish(yFin){
     draw();
@@ -42,12 +44,18 @@ bool CPEOPLE::isDead(){
 }
 
 bool CPEOPLE::isImpact(vector<LANE*> lanes){
-    // int objLeftbound=obj->getPosX();
-    // int objRightbound=objLeftbound+obj->getWidth();
-    
-    // int objUpperbound=obj->getPosY();
-    // int objLowebound=objUpperbound+obj->getHeight();
+    for (auto lane:lanes){
+        vector<OBSTACLE*> obstacles=lane->getObstacles();
+        for (auto obj:obstacles){
+            int objLeftbound=obj->getPosX();
+            int objRightbound=objLeftbound+obj->getWidth();
+            
+            int objUpperbound=obj->getPosY();
+            int objLowebound=objUpperbound+obj->getHeight();
 
-    // return ((objUpperbound<=mY && mY<=objLowebound) || (objUpperbound<=mY+height && mY+height<=objLowebound)) 
-    //         && ((objLeftbound<=mX && mX<=objRightbound) || (objLeftbound<=mX+width && mX+width<=objRightbound));
+            if (((objUpperbound<=mY && mY<=objLowebound) || (objUpperbound<=mY+height && mY+height<=objLowebound)) &&
+                ((objLeftbound<=mX && mX<=objRightbound) || (objLeftbound<=mX+width && mX+width<=objRightbound))) return 1;
+        }
+    }
+    return 0;
 }

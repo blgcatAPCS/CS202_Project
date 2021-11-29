@@ -39,6 +39,7 @@ CPEOPLE CGAME::getPeople(){
 }
 
 void CGAME::updatePosPeople(char c){
+    cn->clear();
     c=toupper(c);
     switch (c){
     case 'A':
@@ -64,4 +65,6 @@ void CGAME::updatePosPeople(char c){
     cn->draw();
 }
 
-vector<LANE*> getLanes();
+vector<LANE*> CGAME::getLanes(){
+    return lanes;
+}

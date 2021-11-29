@@ -24,6 +24,10 @@ LANE::~LANE() {
         delete obs;
 }
 
+vector<OBSTACLE*> LANE::getObstacles(){
+    return obstacles;
+}
+
 void LANE::move() {
     if (++frameCounter == time) {
         frameCounter = 0;

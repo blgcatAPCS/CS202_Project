@@ -1,6 +1,9 @@
 #ifndef cpeopleh
 #define cpeopleh
+
 #include "header.h"
+#include "clane.h"
+
 class CPEOPLE{
     int mX, mY;
     bool mState; //Trạng thái sống chết
