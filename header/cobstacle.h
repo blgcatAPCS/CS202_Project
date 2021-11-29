@@ -16,13 +16,13 @@ public:
 
 	virtual ~OBSTACLE();
 
-    virtual int getPosX();
-
-    virtual int getPosY();
-
 	virtual int getWidth();
 
     virtual int getHeight();
+
+    virtual int getPosX();
+
+    virtual int getPosY();
 
 	virtual OBSTACLE* create(int x, int y, bool isReverse) = 0;
 

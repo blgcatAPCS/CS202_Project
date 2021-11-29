@@ -1,32 +1,16 @@
 #include "header/header.h"
 
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-void CPEOPLE::Up(int step){
-    mY-=step*velocity;
-=======
-CPEOPLE::CPEOPLE(int x, int y, int v)
-: mX(x), mY(y), mState(1), velocity(v){
-=======
-CPEOPLE::CPEOPLE(int x, int y, int finY, int v)
-: mX(x), mY(y), mState(1), finishedY(finY), velocity(v){
->>>>>>> Stashed changes
+CPEOPLE::CPEOPLE(int x, int y, int v, int yFin)
+: mX(x), mY(y), mState(1), velocity(v), yFinish(yFin){
     draw();
->>>>>>> Stashed changes
 }
 
-void CPEOPLE::Left(int step){
-    mX-=step*velocity;
+void CPEOPLE::draw(){
+    gotoXY(mX, mY); cout << " ('') ";
+    gotoXY(mX, mY + 1); cout << "/[  ]\\";
+    gotoXY(mX, mY + 2); cout << "  UU  ";
 }
 
-<<<<<<< Updated upstream
-void CPEOPLE::Right(int step){
-    mX+=step*velocity;
-}
-
-void CPEOPLE::Down(int step){
-    mY+=step*velocity;
-=======
 void CPEOPLE::clear() {
     gotoXY(mX, mY); cout << "      ";
     gotoXY(mX, mY + 1); cout << "      ";
@@ -34,37 +18,36 @@ void CPEOPLE::clear() {
 }
 
 void CPEOPLE::Up(int step){
-<<<<<<< Updated upstream
-    mX -= step*velocity;
-=======
-    mX-=step*velocity;
->>>>>>> Stashed changes
+    mY-=step*velocity;
 }
 
 void CPEOPLE::Left(int step){
-    mY-= step*velocity;
+    mX-= step*velocity;
 }
 
 void CPEOPLE::Right(int step){
-<<<<<<< Updated upstream
-    mY+= step*velocity;
-}
-
-void CPEOPLE::Down(int step){
-    mX += step*velocity;
->>>>>>> Stashed changes
-}
-
-bool CPEOPLE::isDead(){
-    return mState;
-}
-=======
-    mY+=step*velocity;
-}
-
-void CPEOPLE::Down(int step){
     mX+=step*velocity;
 }
 
-bool 
->>>>>>> Stashed changes
+void CPEOPLE::Down(int step){
+    mY+=step*velocity;
+}
+
+bool CPEOPLE::isFinish(){
+    return mY<=yFinish;
+}
+
+bool CPEOPLE::isDead(){
+    return !mState;
+}
+
+bool CPEOPLE::isImpact(OBSTACLE *obj){
+    int objLeftbound=obj->getPosX();
+    int objRightbound=objLeftbound+obj->getWidth();
+    
+    int objUpperbound=obj->getPosY();
+    int objLowebound=objUpperbound+obj->getHeight();
+
+    return ((objUpperbound<=mY && mY<=objLowebound) || (objUpperbound<=mY+height && mY+height<=objLowebound)) 
+            && ((objLeftbound<=mX && mX<=objRightbound) || (objLeftbound<=mX+width && mX+width<=objRightbound));
+}

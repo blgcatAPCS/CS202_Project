@@ -2,37 +2,23 @@
 #define cpeopleh
 #include "header.h"
 class CPEOPLE{
-private:
     int mX, mY;
     bool mState; //Trạng thái sống chết
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-    const unsigned int velocity = 5;
+    int velocity;
+    int yFinish;
+    const int width=6;
+    const int height=3;
+
 public:
-    //CPEOPLE();
+    CPEOPLE(int x = 0, int y = 0, int v=2, int yFin=0);
     void Up(int step);
     void Left(int step);
     void Right(int step);
     void Down(int step);
-=======
-    int velocity;
-
-public:
-    CPEOPLE(int x = 0, int y = 0, int v=5);
-=======
-    int velocity;
-    const int finishedY;
-
-public:
-    CPEOPLE(int x = 0, int y = 0, int finY, int v=5);
->>>>>>> Stashed changes
-    void Up(int);
-    void Left(int);
-    void Right(int);
-    void Down(int);
->>>>>>> Stashed changes
-    bool isImpact(const OBSTACLE*&);
+    bool isImpact(OBSTACLE *obj);
     bool isFinish();
     bool isDead();
+    void draw();
+    void clear();
 };
 #endif
