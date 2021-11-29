@@ -15,7 +15,7 @@ public:
     void Left(int step);
     void Right(int step);
     void Down(int step);
-    bool isImpact(OBSTACLE *obj);
+    bool isImpact(vector<LANE*> lanes);
     bool isFinish();
     bool isDead();
     void draw();

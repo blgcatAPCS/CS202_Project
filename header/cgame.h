@@ -2,14 +2,15 @@
 #define cgameh
 #include "header.h"
 class CGAME{
-vector<LANE*> lanes;
-CPEOPLE *cn;
-cTraffic traffic;
+    vector<LANE*> lanes;
+    CPEOPLE *cn;
+    cTraffic traffic;
 public:
     CGAME(); //Chuẩn bị dữ liệu cho tất cả các đối tượng
     void drawGame(); //Thực hiện vẽ trò chơi ra màn hình sau khi có dữ liệu
     ~CGAME(); // Hủy tài nguyên đã cấp phát
     CPEOPLE getPeople();//Lấy thông tin người
+    vector<LANE*> getLanes();
     //CVEHICLE* getVehicle();//Lấy danh sách các xe
     //CANIMAL* getAnimal(); //Lấy danh sách các thú
     void resetGame(); // Thực hiện thiết lập lại toàn bộ dữ liệu như lúc đầu

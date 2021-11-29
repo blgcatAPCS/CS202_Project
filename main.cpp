@@ -2,14 +2,13 @@
 
 using namespace std;
 //Các hằng số và biến toàn cục cần thiết
-char MOVING;
 // CGAME cg;
 int main()
 {
     // cout<<1;
     // system("Pause");
     // // cg = new CGAME();
-    // int temp;
+    int temp;
     fixConsoleWindow();
     boardGame();
     
@@ -43,38 +42,36 @@ int main()
     //     p.draw();
     // }
     
-    CGAME g;
     while(1){
-        g.moveObstacles();
-        char tmp=toupper(getch());
-        g.updatePosPeople(tmp);
     }
     // cg.startGame();
-    // thread t1(SubThread);
-    // while (1)
-    // {
-    //     temp = toupper(getch());
-    //     if (!cg.getPeople().isDead())
-    //     {
-    //         if (temp == 27) {
-    //         cg.exitGame(t1.native_handle());
-    //         return;
-    //     }
-    //     else if (temp == 'P') {
-    //         cg.pauseGame(t1.native_handle());
-    //     }
-    //     else {
-    //         cg.resumeGame((HANDLE)t1.native_handle());
-    //         MOVING = temp; //Cập nhật bước di chuyển
-    //         }
-    //     }
-    //     else
-    //     {
-    //         if (temp == 'Y') cg.startGame();
-    //         else {
-    //             cg.exitGame(t1.native_handle());
-    //             return;
-    //         }
-    //     }
-    // }
+    thread t1(SubThread);
+    while (1)
+    {
+        temp = toupper(getch());
+        if (!g.getPeople().isDead())
+        {
+            if (temp == 27) {
+                g.exitGame(t1.native_handle());
+                return;
+            }
+            else if (temp == 'P') {
+                g.pauseGame(t1.native_handle());
+            }
+            else {
+                g.resumeGame((HANDLE)t1.native_handle());
+                MOVING = temp; //Cập nhật bước di chuyển
+                g.moveObstacles();
+                char tmp=toupper(getch());
+                g.updatePosPeople(tmp);
+            }
+        }
+        else {
+            if (temp == 'Y') g.startGame();
+            else {
+                g.exitGame(t1.native_handle());
+                return;
+            }
+        }
+    }
 }

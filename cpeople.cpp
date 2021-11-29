@@ -41,13 +41,13 @@ bool CPEOPLE::isDead(){
     return !mState;
 }
 
-bool CPEOPLE::isImpact(OBSTACLE *obj){
-    int objLeftbound=obj->getPosX();
-    int objRightbound=objLeftbound+obj->getWidth();
+bool CPEOPLE::isImpact(vector<LANE*> lanes){
+    // int objLeftbound=obj->getPosX();
+    // int objRightbound=objLeftbound+obj->getWidth();
     
-    int objUpperbound=obj->getPosY();
-    int objLowebound=objUpperbound+obj->getHeight();
+    // int objUpperbound=obj->getPosY();
+    // int objLowebound=objUpperbound+obj->getHeight();
 
-    return ((objUpperbound<=mY && mY<=objLowebound) || (objUpperbound<=mY+height && mY+height<=objLowebound)) 
-            && ((objLeftbound<=mX && mX<=objRightbound) || (objLeftbound<=mX+width && mX+width<=objRightbound));
+    // return ((objUpperbound<=mY && mY<=objLowebound) || (objUpperbound<=mY+height && mY+height<=objLowebound)) 
+    //         && ((objLeftbound<=mX && mX<=objRightbound) || (objLeftbound<=mX+width && mX+width<=objRightbound));
 }

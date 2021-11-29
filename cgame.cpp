@@ -34,6 +34,10 @@ void CGAME::moveObstacles(){
     }
 }
 
+CPEOPLE CGAME::getPeople(){
+    return *cn;
+}
+
 void CGAME::updatePosPeople(char c){
     c=toupper(c);
     switch (c){
@@ -59,3 +63,5 @@ void CGAME::updatePosPeople(char c){
 
     cn->draw();
 }
+
+vector<LANE*> getLanes();
