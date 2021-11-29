@@ -28,6 +28,7 @@ using namespace std;
 
 char MOVING;
 CGAME g;
+bool IS_RUNNING=1;
 
 void SubThread();
 

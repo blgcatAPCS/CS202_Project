@@ -11,7 +11,7 @@ void subThread(){
             MOVING = ' ';// Tạm khóa không cho di chuyển, chờ nhận phím từ hàm main
             g.moveObstacles();
             g.drawGame();
-            if (g.getPeople().isImpact(g.getLanes()){
+            if (g.getPeople().isImpact(g.getLanes())){
             // Xử lý khi đụng xe hay thú
             }
             if (g.getPeople().isFinish()){
