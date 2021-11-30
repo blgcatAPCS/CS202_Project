@@ -4,7 +4,6 @@ using namespace std;
 //Các hằng số và biến toàn cục cần thiết
 
 char MOVING;
-CGAME g;
 bool IS_RUNNING = 1;
 
 // void SubThread(){
@@ -35,7 +34,7 @@ int main()
     int temp;
     fixConsoleWindow();
     boardGame();
-    
+    CGAME g;
     while (!g.getPeople().isImpact(g.getLanes())){
         g.moveObstacles();
         char c=toupper(getch());
