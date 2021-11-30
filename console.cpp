@@ -89,14 +89,10 @@ void boardGame() {
     for (int i = 0; i < (120 * 4); ++i) {
         cout << ".";
     }
-    textColor(146);
-    for (int i = 0; i < (120 * 1); ++i) {
-        cout << char(220);
-    }
 
     //grass
     textColor(34);
-    for (int i = 0; i < (120 * 4); ++i) {
+    for (int i = 0; i < (120 * 5); ++i) {
         cout << ".";
     }
     

@@ -11,6 +11,7 @@
 #include <string>
 #include <fstream>
 #include <vector>
+#include <thread>
 //Local header file
 #include "config.h"
 #include "console.h"

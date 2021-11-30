@@ -18,6 +18,14 @@ int OBSTACLE::getHeight() {
     return height;
 }
 
+int OBSTACLE::getPosX(){
+    return x+curOffset;
+}
+
+int OBSTACLE::getPosY(){
+    return y;
+}
+
 void OBSTACLE::clear(const int& offset){
     if (!isReverse) {
         if (isInConsoleWidth(x + offset)) {
@@ -48,4 +56,5 @@ void OBSTACLE::draw(const int &offset){
             cout << visual[i][j];
         }
     }
+    curOffset=offset;
 }
