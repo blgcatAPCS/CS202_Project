@@ -171,10 +171,10 @@ bool CPEOPLE::isImpact(vector<LANE*> lanes){
             int objLeftbound=obj->getPosX();
             int objRightbound=objLeftbound+obj->getWidth();
             
-            int objUpperbound=obj->getPosY();
-            int objLowebound=objUpperbound+obj->getHeight();
+            int objLowerbound=obj->getPosY();
+            int objUpperbound=objLowerbound+obj->getHeight();
 
-            if (((objUpperbound<mY && mY<objLowebound) || (objUpperbound<mY+height && mY+height<objLowebound)) &&
+            if (((objLowerbound<mY && mY<objUpperbound) || (objLowerbound<mY+height && mY+height<objUpperbound)) &&
                 ((objLeftbound<mX && mX<objRightbound) || (objLeftbound<mX+width && mX+width<objRightbound))) return 1;
         }
     }
