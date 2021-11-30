@@ -19,7 +19,7 @@ int OBSTACLE::getHeight() {
 }
 
 int OBSTACLE::getPosX(){
-    return x;
+    return x+curOffset;
 }
 
 int OBSTACLE::getPosY(){
@@ -56,4 +56,5 @@ void OBSTACLE::draw(const int &offset){
             cout << visual[i][j];
         }
     }
+    curOffset=offset;
 }

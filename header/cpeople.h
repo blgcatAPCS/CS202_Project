@@ -13,7 +13,7 @@ class CPEOPLE{
     const int height=3;
 
 public:
-    CPEOPLE(int x = 0, int y = 0, int v=2, int yFin=0);
+    CPEOPLE(int x = 0, int y = 0, int v=2, int yFin=1);
     void Up(int step);
     void Left(int step);
     void Right(int step);

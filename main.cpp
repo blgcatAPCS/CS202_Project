@@ -35,7 +35,7 @@ int main()
     fixConsoleWindow();
     boardGame();
     CGAME g;
-    while (!g.getPeople().isImpact(g.getLanes())){
+    while (!g.getPeople().isImpact(g.getLanes()) && !g.getPeople().isFinish()){
         g.moveObstacles();
         char c=toupper(getch());
         g.updatePosPeople(c);

@@ -8,9 +8,12 @@ class OBSTACLE{
 protected:
     int x, y;
     bool isReverse;
+    int curOffset=0;
+
 
     int height, width;
     string* visual;
+
 public:
 	OBSTACLE(int x = 0, int y = 0, bool isReverse = false, int height = 10, int width = 10);
 
