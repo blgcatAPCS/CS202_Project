@@ -1,5 +1,5 @@
 #include "header/header.h"
-
+#include "header/console.h"
 using namespace std;
 //Các hằng số và biến toàn cục cần thiết
 
@@ -31,14 +31,21 @@ int main()
     // cout<<1;
     // system("Pause");
     // // cg = new CGAME();
+
+
+
     int temp;
     fixConsoleWindow();
     boardGame();
     CGAME g;
     while (!g.getPeople().isImpact(g.getLanes()) && !g.getPeople().isFinish()){
         g.moveObstacles();
-        char c=toupper(getch());
-        g.updatePosPeople(c);
+        char c;
+        if (_kbhit())
+        {
+            c=toupper(getch());
+            g.updatePosPeople(c);
+        }
     }
     
     // cg.startGame();
