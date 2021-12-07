@@ -9,7 +9,7 @@ public:
 	static const int height = 3;
     static const int width = 7;
 
-	CDINOSAUR(int x = 0, int y = 0, bool isReverse = false);
+	CDINOSAUR(int x = 0, int y = 0, bool isReverse = false, int damage=5);
 	OBSTACLE* create(int x = 0, int y = 0, bool isReverse = false);
 	void draw(const int &offset);
 	void clear(const int &offset);
@@ -24,7 +24,7 @@ public:
 	static const int height = 3;
     static const int width = 7;
 
-	CBIRD(int x = 0, int y = 0, bool isReverse = false);
+	CBIRD(int x = 0, int y = 0, bool isReverse = false,int damage=2);
 	OBSTACLE* create(int x = 0, int y = 0, bool isReverse = false);
 	void draw(const int &offset);
 	void clear(const int &offset);
@@ -40,7 +40,7 @@ public:
 	static const int height = 3;
     static const int width = 7;
 
-	CDUCK(int x = 0, int y = 0, bool isReverse = false);
+	CDUCK(int x = 0, int y = 0, bool isReverse = false,int damage=2);
 	OBSTACLE* create(int x = 0, int y = 0, bool isReverse = false);
 	void draw(const int &offset);
 	void clear(const int &offset);
