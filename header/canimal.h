@@ -8,8 +8,9 @@ class CDINOSAUR: public OBSTACLE{
 public:
 	static const int height = 3;
     static const int width = 7;
+	static const int damage = 5;
 
-	CDINOSAUR(int x = 0, int y = 0, bool isReverse = false, int damage=5);
+	CDINOSAUR(int x = 0, int y = 0, bool isReverse = false);
 	OBSTACLE* create(int x = 0, int y = 0, bool isReverse = false);
 	void draw(const int &offset);
 	void clear(const int &offset);
@@ -23,8 +24,9 @@ private:
 public:
 	static const int height = 3;
     static const int width = 7;
+	static const int damage = 2;
 
-	CBIRD(int x = 0, int y = 0, bool isReverse = false,int damage=2);
+	CBIRD(int x = 0, int y = 0, bool isReverse = false);
 	OBSTACLE* create(int x = 0, int y = 0, bool isReverse = false);
 	void draw(const int &offset);
 	void clear(const int &offset);
@@ -39,8 +41,9 @@ private:
 public:
 	static const int height = 3;
     static const int width = 7;
+	static const int damage = 2;
 
-	CDUCK(int x = 0, int y = 0, bool isReverse = false,int damage=2);
+	CDUCK(int x = 0, int y = 0, bool isReverse = false);
 	OBSTACLE* create(int x = 0, int y = 0, bool isReverse = false);
 	void draw(const int &offset);
 	void clear(const int &offset);

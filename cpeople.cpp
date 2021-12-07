@@ -161,10 +161,10 @@ bool CPEOPLE::isFinish(){
 }
 
 bool CPEOPLE::isDead(){
-    return !mState;
+    return HP==0;
 }
 
-bool CPEOPLE::isImpact(vector<LANE*> lanes){
+int CPEOPLE::isImpact(vector<LANE*> lanes){
     for (auto lane:lanes){
         vector<OBSTACLE*> obstacles=lane->getObstacles();
         for (auto obj:obstacles){
@@ -175,8 +175,13 @@ bool CPEOPLE::isImpact(vector<LANE*> lanes){
             int objUpperbound=objLowerbound+obj->getHeight();
 
             if (((objLowerbound<mY && mY<objUpperbound) || (objLowerbound<mY+height && mY+height<objUpperbound)) &&
-                ((objLeftbound<mX && mX<objRightbound) || (objLeftbound<mX+width && mX+width<objRightbound))) return 1;
+                ((objLeftbound<mX && mX<objRightbound) || (objLeftbound<mX+width && mX+width<objRightbound))) return obj->getDamage();
         }
     }
     return 0;
 }
+void CPEOPLE::setHP(int num)
+{
+    HP=max(0,HP-num);
+}
+

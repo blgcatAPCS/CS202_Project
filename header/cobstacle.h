@@ -32,6 +32,7 @@ public:
     //virtual void Move(int, int); //speed and direction control
 
     //virtual void Tell() = 0;
+    virtual int getDamage();
 
 	virtual void clear(const int& offset);
 

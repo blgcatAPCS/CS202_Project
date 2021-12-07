@@ -5,7 +5,9 @@ class CGAME{
     vector<LANE*> lanes;
     CPEOPLE *cn;
     cTraffic *traffic;
+    bool freeze=false; //unharmed after impacted
 public:
+    void freezing(std::chrono::high_resolution_clock::time_point &start);
     CGAME(); //Chuẩn bị dữ liệu cho tất cả các đối tượng
     void drawGame(); //Thực hiện vẽ trò chơi ra màn hình sau khi có dữ liệu
     ~CGAME(); // Hủy tài nguyên đã cấp phát
@@ -20,7 +22,8 @@ public:
     // void saveGame(istream); // Thực hiện lưu lại dữ liệu trò chơi
     void pauseGame(HANDLE); // Tạm dừng Thread
     void resumeGame(HANDLE); //Quay lai Thread
-    void updatePosPeople(char c); //Thực hiện điều khiển di chuyển của CPEOPLE // Cat in charge
+    void updatePeople(std::chrono::high_resolution_clock::time_point &start); //Thực hiện điều khiển di chuyển của CPEOPLE // Cat in charge
     void moveObstacles();
+    // void activateTraffic(std::chrono::high_resolution_clock::time_point &start);
 };
 #endif 

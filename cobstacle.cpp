@@ -1,8 +1,8 @@
 #include "header/header.h"
 
 
-OBSTACLE::OBSTACLE(int x, int y, bool isReverse, int height, int width )
-: x(x), y(y), isReverse(isReverse), height(height), width(width), visual(nullptr) {
+OBSTACLE::OBSTACLE(int x, int y, bool isReverse, int height, int width, int damage )
+: x(x), y(y), isReverse(isReverse), height(height), width(width),damage(damage), visual(nullptr) {
 
 }
 
@@ -13,7 +13,9 @@ OBSTACLE:: ~OBSTACLE() {
 int OBSTACLE::getWidth() { 
     return width; 
 }
-
+int OBSTACLE::getDamage() { 
+    return damage; 
+}
 int OBSTACLE::getHeight() {
     return height;
 }

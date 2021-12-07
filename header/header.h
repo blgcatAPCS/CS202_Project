@@ -12,6 +12,8 @@
 #include <fstream>
 #include <vector>
 #include <thread>
+#include <chrono>
+
 //Local header file
 #include "config.h"
 #include "console.h"
@@ -25,5 +27,10 @@
 #include "menu.h"
 	
 using namespace std;
+using namespace std::chrono;
+
+//Config
+#define freezing_time   3
+#define traffic_stop    2
 
 #endif 

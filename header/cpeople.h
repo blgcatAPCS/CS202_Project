@@ -11,14 +11,18 @@ class CPEOPLE{
     int yFinish;
     const int width=6;
     const int height=3;
+    int HP=100;
+    
 
 public:
     CPEOPLE(int x = 0, int y = 0, int v=2, int yFin=1);
     void Up(int step);
     void Left(int step);
     void Right(int step);
+    
     void Down(int step);
-    bool isImpact(vector<LANE*> lanes);
+    void setHP(int num);
+    int isImpact(vector<LANE*> lanes); //return damage
     bool isFinish();
     bool isDead();
     void draw();

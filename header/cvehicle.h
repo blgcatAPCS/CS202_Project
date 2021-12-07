@@ -11,8 +11,10 @@ private:
 public:
 	static const int height = 4;
     static const int width = 16;
+	static const int damage = 10;
+
 	void setDamage();
-	CTRUCK(int x = 0, int y = 0, bool isReverse = false,int damage=0);
+	CTRUCK(int x = 0, int y = 0, bool isReverse = false);
 	OBSTACLE* create(int x = 0, int y = 0, bool isReverse = false);
 	void draw(const int &offset);
 	void clear(const int &offset);
@@ -27,9 +29,10 @@ private:
 public:
 	static const int height = 4;
     static const int width = 11;
+	static const int damage = 10;
 
 	void setDamage();
-	CCAR(int x = 0, int y = 0, bool isReverse = false,int damage=0);
+	CCAR(int x = 0, int y = 0, bool isReverse = false);
 	OBSTACLE* create(int x = 0, int y = 0, bool isReverse = false);
 	void draw(const int &offset);
 	void clear(const int &offset);

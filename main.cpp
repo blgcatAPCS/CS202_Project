@@ -1,5 +1,5 @@
 #include "header/header.h"
-#include "header/console.h"
+
 using namespace std;
 
 
@@ -10,18 +10,17 @@ bool IS_RUNNING = 1;
 int main()
 {
     int temp;
-    unhidePointer();
+    hidePointer();
     fixConsoleWindow();
     boardGame();
     CGAME g;
-    while (!g.getPeople().isImpact(g.getLanes()) && !g.getPeople().isFinish()){
+    
+    std::chrono::high_resolution_clock::time_point start;
+    // std::chrono::high_resolution_clock::time_point start_tf=high_resolution_clock::now();
+    while (!g.getPeople().isDead() && !g.getPeople().isFinish()){
+        // g.activateTraffic(start_tf);
         g.moveObstacles();
-        char c;
-        if (_kbhit())
-        {
-            c=toupper(getch());
-            g.updatePosPeople(c);
-        }
+        g.updatePeople(start);
     }
     return 0;
 }

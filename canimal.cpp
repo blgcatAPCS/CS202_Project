@@ -1,6 +1,6 @@
 #include "header/header.h"
 
-CDINOSAUR::CDINOSAUR(int x, int y, bool isReverse, int damage)
+CDINOSAUR::CDINOSAUR(int x, int y, bool isReverse)
 : OBSTACLE(x, y, isReverse, height, width,damage){
     if (!isReverse) {
         visual = new string[height]{
@@ -32,7 +32,7 @@ void CDINOSAUR::clear(const int &offset){
     OBSTACLE::clear(offset);
 }
 
-CBIRD::CBIRD(int x, int y, bool isReverse,int damage)
+CBIRD::CBIRD(int x, int y, bool isReverse)
 : OBSTACLE(x, y, isReverse, height, width,damage){
     if (!isReverse) {
         frames = 3;
@@ -101,7 +101,7 @@ CBIRD::~CBIRD(){
         delete[] visual;
 }
 
-CDUCK::CDUCK(int x, int y, bool isReverse,int damage)
+CDUCK::CDUCK(int x, int y, bool isReverse)
 : OBSTACLE(x, y, isReverse, height, width,damage){
     if (!isReverse) {
         frames = 3;
