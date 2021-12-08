@@ -24,6 +24,6 @@ public:
     void resumeGame(HANDLE); //Quay lai Thread
     void updatePeople(std::chrono::high_resolution_clock::time_point &start); //Thực hiện điều khiển di chuyển của CPEOPLE // Cat in charge
     void moveObstacles();
-    // void activateTraffic(std::chrono::high_resolution_clock::time_point &start);
+    void activateTraffic(std::chrono::high_resolution_clock::time_point &start);
 };
 #endif 
