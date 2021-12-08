@@ -27,7 +27,7 @@ CGAME::~CGAME(){
 }
 
 void CGAME::moveObstacles(){
-    traffic->updateTime(1000000);
+    traffic->updateTime(-10000);
     if (traffic->getStatus() == false)
     {
         for (LANE*& lane : lanes)
@@ -97,12 +97,12 @@ void CGAME::freezing(std::chrono::high_resolution_clock::time_point &start){
 
     
 }
-// void CGAME::activateTraffic(std::chrono::high_resolution_clock::time_point &start){
-//     auto stop=high_resolution_clock::now();
-//     auto during=duration_cast<seconds>(stop - start);
-//     if (during.count()==1)
-//     {
-//         traffic->updateTime(traffic_stop);
-//         start=high_resolution_clock::now();
-//     }
-// }
+void CGAME::activateTraffic(std::chrono::high_resolution_clock::time_point &start){
+    auto stop=high_resolution_clock::now();
+    auto during=duration_cast<seconds>(stop - start);
+    if (during.count()==1)
+    {
+        traffic->updateTime(traffic_stop);
+        start=high_resolution_clock::now();
+    }
+}
