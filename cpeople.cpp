@@ -8,6 +8,22 @@ CPEOPLE::CPEOPLE(int x, int y, int v, int yFin)
 }
 
 void CPEOPLE::draw(){
+    textColor(236);
+
+    gotoXY(11, 29);
+    cout << "LIFE (" << HP << "/100) : ";
+
+    gotoXY(27, 29);
+    for(int i = 0; i < (HP*5)/100 + 1; ++i){
+        cout << char(219);
+    }
+
+    for(int i = 0; i < 5 - (HP*5)/100; ++i){
+        textColor(239);
+        cout << char(219);
+    }
+
+    textColor(224);
     if(mY >= 26 && mY <= consoleHeight){
         textColor(224);
     }
@@ -180,6 +196,7 @@ int CPEOPLE::isImpact(vector<LANE*> lanes){
     }
     return 0;
 }
+
 void CPEOPLE::setHP(int num)
 {
     HP=max(0,HP-num);
