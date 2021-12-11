@@ -2,8 +2,8 @@
 
 using namespace std;
 
-CPEOPLE::CPEOPLE(int x, int y, int v, int yFin)
-: mX(x), mY(y), mState(1), velocity(v), yFinish(yFin){
+CPEOPLE::CPEOPLE(string n, int x, int y, int v, int yFin)
+:name(n), mX(x), mY(y), mState(1), velocity(v), yFinish(yFin){
     draw();
 }
 
@@ -201,4 +201,20 @@ void CPEOPLE::setHP(int num)
 {
     HP=max(0,HP-num);
 }
-
+void CPEOPLE::save(ofstream &ofs)
+{
+    ofs<<mX<<" "<<mY<<endl;
+    ofs<<HP<<endl;
+    ofs<<mState<<endl;
+    ofs<<yFinish;
+}
+string CPEOPLE::getName(){
+    return name;
+}
+void CPEOPLE::load(ifstream &ifs)
+{
+    ifs>>mX>>mY;
+    ifs>>HP;
+    ifs>>mState;
+    ifs>>yFinish;
+}

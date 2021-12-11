@@ -5,6 +5,7 @@
 #include "clane.h"
 
 class CPEOPLE{
+    string name;
     int mX, mY;
     int velocity;
 
@@ -23,8 +24,7 @@ class CPEOPLE{
     
 
 public:
-    CPEOPLE(int x = 0, int y = 0, int v=2, int yFin=1);
-
+    CPEOPLE(string n="Unknown",int x = 0, int y = 0, int v=2, int yFin=1);
     void Up(int step);
     void Left(int step);
     void Right(int step);
@@ -38,5 +38,9 @@ public:
 
     void draw();
     void clear();
+    void save(ofstream &ofs);
+    void load(ifstream &ifs);
+    string getName();
+    
 };
 #endif

@@ -12,15 +12,39 @@ int main()
     int temp;
     hidePointer();
     fixConsoleWindow();
-    boardGame();
+    int choice = 0, c;
     CGAME g;
-    
-    std::chrono::high_resolution_clock::time_point start;
-    // std::chrono::high_resolution_clock::time_point start_tf=high_resolution_clock::now();
-    while (!g.getPeople().isDead() && !g.getPeople().isFinish()){
-        // g.activateTraffic(start_tf);
-        g.moveObstacles();
-        g.updatePeople(start);
+    while(1){
+        drawMenu(choice);
+        switch (c = getch()) {
+            case UP:
+                choice = (choice + 3) % 4;
+                break;
+            case DOWN:
+                choice = (choice + 1) % 4;
+                break;
+            case ENTER: {
+                switch (choice) {
+                    case 0:
+                        newGame();
+                        g.newGame();
+                        g.startGame();
+                        break;
+                    case 1:
+                        loadGame();
+                        g.startGame();
+                        break;
+                    case 2: 
+                        settingsMenu();
+                        break;
+                    
+                    default:
+                        break;
+                }
+
+            }
+        }
     }
+    
     return 0;
 }

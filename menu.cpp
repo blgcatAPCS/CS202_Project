@@ -162,8 +162,8 @@ void drawMenu(int choice){
             cout << setting[i];
         }
     }                                                                                                                                                                                                                                                                          
-    //clear();
-    //system("pause");
+    // clear();
+    // system("pause");
 }
 
 void newGame(){
@@ -171,8 +171,7 @@ void newGame(){
     gotoXY(0,0);
     textColor(241);
     gotoXY(34,14);
-    cout << "Request not yet processed! Enter to return to the menu";
-    getch();
+    cout << "Good morning! Please enter your name to start rocking the game: ";
 }
 
 void loadGame(){

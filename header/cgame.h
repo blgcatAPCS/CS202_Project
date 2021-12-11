@@ -5,6 +5,7 @@ class CGAME{
     vector<LANE*> lanes;
     CPEOPLE *cn;
     cTraffic *traffic;
+    int level;
     bool freeze=false; //unharmed after impacted
 public:
     void freezing(std::chrono::high_resolution_clock::time_point &start);
@@ -18,12 +19,14 @@ public:
     void resetGame(); // Thực hiện thiết lập lại toàn bộ dữ liệu như lúc đầu
     void exitGame(HANDLE); // Thực hiện thoát Thread
     void startGame(); // Thực hiện bắt đầu vào trò chơi
-    // void loadGame(istream); // Thực hiện tải lại trò chơi đã lưu
-    // void saveGame(istream); // Thực hiện lưu lại dữ liệu trò chơi
+    void newGame();
+    void loadGame(); // Thực hiện tải lại trò chơi đã lưu
+    void saveGame(); // Thực hiện lưu lại dữ liệu trò chơi
     void pauseGame(HANDLE); // Tạm dừng Thread
     void resumeGame(HANDLE); //Quay lai Thread
     void updatePeople(std::chrono::high_resolution_clock::time_point &start); //Thực hiện điều khiển di chuyển của CPEOPLE // Cat in charge
     void moveObstacles();
     void activateTraffic(std::chrono::high_resolution_clock::time_point &start);
+    void initiate();
 };
 #endif 
