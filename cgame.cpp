@@ -1,7 +1,12 @@
 #include "header/header.h"
 
 CGAME::CGAME(){
-    cn = new CPEOPLE(60,26);
+    
+    // cn = new CPEOPLE(60,26);
+    
+}
+void CGAME::initiate()
+{
     traffic = new cTraffic();
     OBSTACLE* truck = new CTRUCK();
     OBSTACLE* car = new CCAR();
@@ -21,7 +26,6 @@ CGAME::CGAME(){
     delete bird;
     delete dinosaur;
 }
-
 CGAME::~CGAME(){
     
 }
@@ -40,10 +44,12 @@ CPEOPLE CGAME::getPeople(){
 }
 
 void CGAME::updatePeople(std::chrono::high_resolution_clock::time_point &start){
-    cn->clear();
     char c;
+    
+        
     if (_kbhit())
     {
+        cn->clear();
         c=toupper(getch());
         switch (c){
         case 'A':
@@ -65,10 +71,13 @@ void CGAME::updatePeople(std::chrono::high_resolution_clock::time_point &start){
         default:
             break;
         }
+        cn->draw();
     }
+    
     int dmg=getPeople().isImpact(getLanes());
     if (dmg)
     {
+        cn->draw();
         if (!freeze)
         {
             cn->setHP(dmg);
@@ -77,7 +86,7 @@ void CGAME::updatePeople(std::chrono::high_resolution_clock::time_point &start){
     }
     if (freeze)
         freezing(start);
-    cn->draw();
+    
 }
 
 vector<LANE*> CGAME::getLanes(){
@@ -104,5 +113,36 @@ void CGAME::activateTraffic(std::chrono::high_resolution_clock::time_point &star
     {
         traffic->updateTime(traffic_stop);
         start=high_resolution_clock::now();
+    }
+}
+void CGAME::saveGame(){
+    ofstream ofs(cn->getName()+".txt");
+    ofs<<level<<endl;
+    cn->save(ofs);
+    ofs.close();
+}
+void CGAME::loadGame(){
+    string name;
+    ifstream ifs(name+".txt");
+    ifs>>level;
+    cn=new CPEOPLE;
+    cn->load(ifs);
+    ifs.close();
+}
+void CGAME::newGame(){ 
+    string name;
+    cin.ignore();
+    getline(cin,name,'\n');
+    cn=new CPEOPLE(name,60,26);
+}
+void CGAME::startGame(){
+    system("cls");
+    boardGame();
+    initiate();
+    cn->draw();
+    std::chrono::high_resolution_clock::time_point start;
+    while (!getPeople().isDead() && !getPeople().isFinish()){
+        moveObstacles();
+        updatePeople(start);
     }
 }

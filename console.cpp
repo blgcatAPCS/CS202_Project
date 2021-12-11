@@ -73,6 +73,7 @@ void unhidePointer()
 
 void boardGame() {
     //grass
+    gotoXY(0,0);
     textColor(34);
     for (int i = 0; i < (120 * 5); ++i) {
         cout << ".";
