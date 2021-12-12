@@ -16,7 +16,7 @@ class CPEOPLE{
     const int height=3;
 
     const int topBorder=1;
-    const int botBorder=30;
+    const int botBorder=27;
     const int leftBorder=0;
     const int rightBorder=120;
     

@@ -43,10 +43,10 @@ CPEOPLE CGAME::getPeople(){
     return *cn;
 }
 
-void CGAME::updatePeople(std::chrono::high_resolution_clock::time_point &start){
+bool CGAME::updatePeople(std::chrono::high_resolution_clock::time_point &start){
     char c;
     
-        
+    
     if (_kbhit())
     {
         cn->clear();
@@ -67,7 +67,9 @@ void CGAME::updatePeople(std::chrono::high_resolution_clock::time_point &start){
         case 'D':
             cn->Right(1);
             break;
-            
+        case 'P':
+            return true;
+            break;
         default:
             break;
         }
@@ -86,7 +88,7 @@ void CGAME::updatePeople(std::chrono::high_resolution_clock::time_point &start){
     }
     if (freeze)
         freezing(start);
-    
+    return false;
 }
 
 vector<LANE*> CGAME::getLanes(){
@@ -116,20 +118,32 @@ void CGAME::activateTraffic(std::chrono::high_resolution_clock::time_point &star
     }
 }
 void CGAME::saveGame(){
-    ofstream ofs(cn->getName()+".txt");
+    saveGameMenu();
+    string choice;
+    cin>>choice;
+    while (choice!="y"&&choice!="n")
+    {
+        saveGameMenu();
+        cin>>choice;
+    }
+    if (choice=="n") return;
+    ofstream ofs(dataroot+cn->getName()+".txt");
     ofs<<level<<endl;
     cn->save(ofs);
     ofs.close();
 }
 void CGAME::loadGame(){
+    loadGameMenu();
     string name;
-    ifstream ifs(name+".txt");
+    // ifstream ifs(dataroot+name+".txt");
+    ifstream ifs(dataroot+".txt");
     ifs>>level;
     cn=new CPEOPLE;
     cn->load(ifs);
     ifs.close();
 }
 void CGAME::newGame(){ 
+    newGameMenu();
     string name;
     cin.ignore();
     getline(cin,name,'\n');
@@ -137,12 +151,30 @@ void CGAME::newGame(){
 }
 void CGAME::startGame(){
     system("cls");
-    boardGame();
     initiate();
+    boardGame();
     cn->draw();
     std::chrono::high_resolution_clock::time_point start;
-    while (!getPeople().isDead() && !getPeople().isFinish()){
+    while (!getPeople().isDead() && !getPeople().isFinish()){      
         moveObstacles();
-        updatePeople(start);
+        bool exitChoice=updatePeople(start);
+        if (exitChoice)
+            if (pauseGame())
+                return;
+            else
+                boardGame();
     }
+}
+bool CGAME::pauseGame(){
+    pauseMenu();
+    string choice;
+    cin>>choice;
+    while (choice!="y"&&choice!="n")
+    {
+        pauseMenu();
+        cin>>choice;
+    }
+    if (choice=="n") return false;
+    saveGame();
+    return true;
 }

@@ -16,15 +16,15 @@ public:
     vector<LANE*> getLanes();
     //CVEHICLE* getVehicle();//Lấy danh sách các xe
     //CANIMAL* getAnimal(); //Lấy danh sách các thú
-    void resetGame(); // Thực hiện thiết lập lại toàn bộ dữ liệu như lúc đầu
-    void exitGame(HANDLE); // Thực hiện thoát Thread
+    // void resetGame(); // Thực hiện thiết lập lại toàn bộ dữ liệu như lúc đầu
+    // void exitGame(HANDLE); // Thực hiện thoát Thread
     void startGame(); // Thực hiện bắt đầu vào trò chơi
     void newGame();
     void loadGame(); // Thực hiện tải lại trò chơi đã lưu
     void saveGame(); // Thực hiện lưu lại dữ liệu trò chơi
-    void pauseGame(HANDLE); // Tạm dừng Thread
-    void resumeGame(HANDLE); //Quay lai Thread
-    void updatePeople(std::chrono::high_resolution_clock::time_point &start); //Thực hiện điều khiển di chuyển của CPEOPLE // Cat in charge
+    bool pauseGame(); // yes to exit, no to resume
+    
+    bool updatePeople(std::chrono::high_resolution_clock::time_point &start); //Thực hiện điều khiển di chuyển của CPEOPLE // yes to exit
     void moveObstacles();
     void activateTraffic(std::chrono::high_resolution_clock::time_point &start);
     void initiate();

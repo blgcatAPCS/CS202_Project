@@ -1,6 +1,7 @@
 #include "header/header.h"
 
 void clear(){
+    system("cls");
     textColor(255);
     gotoXY(0,0);
     for(int i = 0; i < 120*32; ++i){
@@ -166,20 +167,23 @@ void drawMenu(int choice){
     // system("pause");
 }
 
-void newGame(){
+void newGameMenu(){
     clear();
     gotoXY(0,0);
     textColor(241);
-    gotoXY(34,14);
+    gotoXY(25,14);
     cout << "Good morning! Please enter your name to start rocking the game: ";
 }
 
-void loadGame(){
+void loadGameMenu(){
     clear();
     gotoXY(0,0);
     textColor(241);
-    gotoXY(34,14);
-    cout << "Request not yet processed! Enter to return to the menu";
+    gotoXY(20,5);
+    vector<string>names;
+    cout << "No\t\t\tName\t\t\t\tLevel\t\tHP\t\tState";
+    // for (const auto & entry : directory_iterator(dataroot))
+    //     cout << entry.path() << endl;
     getch();
 }
 
@@ -191,34 +195,24 @@ void settingsMenu(){
     cout << "Request not yet processed! Enter to return to the menu";
     getch();
 }
-
-void mainMenu(){
-    int choice = 0, c;
-    while(1){
-        drawMenu(choice);
-        switch (c = getch()) {
-            case UP:
-                choice = (choice + 3) % 4;
-                break;
-            case DOWN:
-                choice = (choice + 1) % 4;
-                break;
-            case ENTER: {
-                switch (choice) {
-                    case 0:
-                        newGame();
-                        break;
-                    case 1:
-                        loadGame();
-                        break;
-                    case 2: 
-                        settingsMenu();
-                        break;
-                    
-                    default:
-                        return;
-                }
-            }
-        }
-    }
+void resetMenu(){
+    clear();
+    gotoXY(0,0);
+    textColor(241);
+    gotoXY(25,14);
+    cout << "Do you really want to reset all the data? (y/n): ";
+}
+void pauseMenu(){
+    clear();
+    gotoXY(0,0);
+    textColor(241);
+    gotoXY(25,14);
+    cout << "Do you want to exit? (y/n): ";
+}
+void saveGameMenu(){
+    clear();
+    gotoXY(0,0);
+    textColor(241);
+    gotoXY(25,14);
+    cout << "Save your process? (y/n): ";
 }

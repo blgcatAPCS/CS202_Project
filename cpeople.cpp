@@ -157,19 +157,19 @@ void CPEOPLE::clear() {
 }
 
 void CPEOPLE::Up(int step){
-    mY-=max(step*velocity,topBorder);
+    mY=max(mY-step*velocity,topBorder);
 }
 
 void CPEOPLE::Left(int step){
-    mX-= max(step*velocity,leftBorder);
+    mX= max(mX-step*velocity,leftBorder);
 }
 
 void CPEOPLE::Right(int step){
-    mX+=min(step*velocity,rightBorder-width);
+    mX=min(mX+step*velocity,rightBorder-width);
 }
 
 void CPEOPLE::Down(int step){
-    mY+=min(step*velocity,botBorder-height);
+    mY=min(mY+step*velocity,botBorder);
 }
 
 bool CPEOPLE::isFinish(){

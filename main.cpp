@@ -26,12 +26,11 @@ int main()
             case ENTER: {
                 switch (choice) {
                     case 0:
-                        newGame();
                         g.newGame();
                         g.startGame();
                         break;
                     case 1:
-                        loadGame();
+                        g.loadGame();
                         g.startGame();
                         break;
                     case 2: 
