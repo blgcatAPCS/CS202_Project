@@ -27,6 +27,8 @@ public:
     bool updatePeople(std::chrono::high_resolution_clock::time_point &start); //Thực hiện điều khiển di chuyển của CPEOPLE // yes to exit
     void moveObstacles();
     void activateTraffic(std::chrono::high_resolution_clock::time_point &start);
-    void initiate();
+    void initiateEasy();
+    void initiateMedium();
+    void initiateHard();
 };
 #endif 

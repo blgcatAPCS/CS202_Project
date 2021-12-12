@@ -1,7 +1,27 @@
 ﻿  CS202_Group03.cpp
   The contents of <filesystem> are available only with C++17 or later.
 C:\Users\quynhlpn\Desktop\NQ\CS202_Project\VS_version\CS202_Group03\CS202_Group03\CS202_Group03.cpp(12,9): warning C4101: 'temp': unreferenced local variable
+  canimal.cpp
+  The contents of <filesystem> are available only with C++17 or later.
+  cgame.cpp
+  The contents of <filesystem> are available only with C++17 or later.
+  clane.cpp
+  The contents of <filesystem> are available only with C++17 or later.
+  cobstacle.cpp
+  The contents of <filesystem> are available only with C++17 or later.
+  console.cpp
+  The contents of <filesystem> are available only with C++17 or later.
+C:\Users\quynhlpn\Desktop\NQ\CS202_Project\VS_version\CS202_Group03\CS202_Group03\console.cpp(191,17): warning C4101: 'start': unreferenced local variable
+C:\Users\quynhlpn\Desktop\NQ\CS202_Project\VS_version\CS202_Group03\CS202_Group03\console.cpp(257,17): warning C4101: 'start': unreferenced local variable
+C:\Users\quynhlpn\Desktop\NQ\CS202_Project\VS_version\CS202_Group03\CS202_Group03\console.cpp(329,17): warning C4101: 'start': unreferenced local variable
+C:\Users\quynhlpn\Desktop\NQ\CS202_Project\VS_version\CS202_Group03\CS202_Group03\console.cpp(402,17): warning C4101: 'start': unreferenced local variable
+  cpeople.cpp
+  The contents of <filesystem> are available only with C++17 or later.
   ctraffic.cpp
+  The contents of <filesystem> are available only with C++17 or later.
+  cvehicle.cpp
+  The contents of <filesystem> are available only with C++17 or later.
+  header.cpp
   The contents of <filesystem> are available only with C++17 or later.
   menu.cpp
   The contents of <filesystem> are available only with C++17 or later.
