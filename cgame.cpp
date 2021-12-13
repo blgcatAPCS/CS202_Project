@@ -5,7 +5,49 @@ CGAME::CGAME(){
     // cn = new CPEOPLE(60,26);
     
 }
-void CGAME::initiate()
+void CGAME::initiateHard()
+{
+    traffic = new cTraffic();
+    OBSTACLE* truck = new CTRUCK();
+    OBSTACLE* car = new CCAR();
+    // OBSTACLE* duck = new CDUCK();
+    // OBSTACLE* bird = new CBIRD();
+    OBSTACLE* dinosaur = new CDINOSAUR();
+
+    lanes.emplace_back(new LANE(dinosaur, 21, 20, 8, 0));
+    lanes.emplace_back(new LANE(car, 6, 20, 3, 1));
+    lanes.emplace_back(new LANE(truck, 11, 20, 8, 0));
+    lanes.emplace_back(new LANE(car, 16, 20, 10, 1));
+    lanes.emplace_back(new LANE(dinosaur, 1, 20, 2, 1));
+
+    delete truck;
+    delete car;
+    // delete duck;
+    // delete bird;
+    delete dinosaur;
+}
+void CGAME::initiateEasy()
+{
+    traffic = new cTraffic();
+    // OBSTACLE* truck = new CTRUCK();
+    // OBSTACLE* car = new CCAR();
+    OBSTACLE* duck = new CDUCK();
+    OBSTACLE* bird = new CBIRD();
+    OBSTACLE* dinosaur = new CDINOSAUR();
+
+    lanes.emplace_back(new LANE(duck, 21, 20, 8, 0));
+    lanes.emplace_back(new LANE(dinosaur, 6, 20, 3, 1));
+    lanes.emplace_back(new LANE(duck, 11, 20, 8, 0));
+    lanes.emplace_back(new LANE(bird, 16, 20, 10, 1));
+    lanes.emplace_back(new LANE(dinosaur, 1, 20, 2, 1));
+
+    // delete truck;
+    // delete car;
+    delete duck;
+    delete bird;
+    delete dinosaur;
+}
+void CGAME::initiateMedium()
 {
     traffic = new cTraffic();
     OBSTACLE* truck = new CTRUCK();
@@ -14,11 +56,11 @@ void CGAME::initiate()
     OBSTACLE* bird = new CBIRD();
     OBSTACLE* dinosaur = new CDINOSAUR();
 
-    lanes.emplace_back(new LANE(truck, 21, 20, 8, 0));
+    lanes.emplace_back(new LANE(duck, 21, 20, 8, 0));
     lanes.emplace_back(new LANE(car, 6, 20, 3, 1));
-    lanes.emplace_back(new LANE(duck, 11, 20, 8, 0));
+    lanes.emplace_back(new LANE(dinosaur, 11, 20, 8, 0));
     lanes.emplace_back(new LANE(bird, 16, 20, 10, 1));
-    lanes.emplace_back(new LANE(dinosaur, 1, 20, 2, 1));
+    lanes.emplace_back(new LANE(truck, 1, 20, 2, 1));
 
     delete truck;
     delete car;

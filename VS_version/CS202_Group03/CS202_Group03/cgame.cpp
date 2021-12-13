@@ -186,7 +186,7 @@ void CGAME::newGame(){
 }
 void CGAME::startGame(){
     system("cls");
-    initiateHard();
+    initiateEasy();
     boardGame();
     cn->draw();
     std::chrono::high_resolution_clock::time_point start;
