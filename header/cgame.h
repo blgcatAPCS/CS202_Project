@@ -5,7 +5,7 @@ class CGAME{
     vector<LANE*> lanes;
     CPEOPLE *cn;
     cTraffic *traffic;
-    int level;
+    int level=0;
     bool freeze=false; //unharmed after impacted
 public:
     void freezing(std::chrono::high_resolution_clock::time_point &start);
@@ -23,6 +23,7 @@ public:
     void loadGame(); // Thực hiện tải lại trò chơi đã lưu
     void saveGame(); // Thực hiện lưu lại dữ liệu trò chơi
     bool pauseGame(); // yes to exit, no to resume
+    void terminate();
     
     bool updatePeople(std::chrono::high_resolution_clock::time_point &start); //Thực hiện điều khiển di chuyển của CPEOPLE // yes to exit
     void moveObstacles();

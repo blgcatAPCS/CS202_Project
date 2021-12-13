@@ -27,7 +27,7 @@ void CGAME::initiate()
     delete dinosaur;
 }
 CGAME::~CGAME(){
-    
+    terminate();
 }
 
 void CGAME::moveObstacles(){
@@ -179,4 +179,10 @@ bool CGAME::pauseGame(){
     if (choice=="n") return false;
     saveGame();
     return true;
+}
+
+void CGAME::terminate(){
+    lanes.clear();
+    delete cn;
+    delete traffic;
 }

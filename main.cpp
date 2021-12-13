@@ -28,10 +28,12 @@ int main()
                     case 0:
                         g.newGame();
                         g.startGame();
+                        g.terminate();
                         break;
                     case 1:
                         g.loadGame();
                         g.startGame();
+                        g.terminate();
                         break;
                     case 2: 
                         settingsMenu();

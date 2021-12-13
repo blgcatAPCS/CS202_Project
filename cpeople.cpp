@@ -161,15 +161,24 @@ void CPEOPLE::Up(int step){
 }
 
 void CPEOPLE::Left(int step){
-    mX= max(mX-step*velocity,leftBorder);
+    mX-=step*velocity;
+    int tmpLeftBorder = (mY+height<=botBorder-trafficHeight) ? leftBorder : trafficWidth;
+    mX= max(mX,tmpLeftBorder);
 }
 
 void CPEOPLE::Right(int step){
     mX=min(mX+step*velocity,rightBorder-width);
 }
 
+bool CPEOPLE::isXInsideTraffic(){
+    return (0<=mX && mX<=trafficWidth);
+}
+
 void CPEOPLE::Down(int step){
-    mY=min(mY+step*velocity,botBorder);
+    mY+=step*velocity;
+    int tmpBotBorder = botBorder;
+    if (mY+height>=botBorder-trafficHeight && isXInsideTraffic()) tmpBotBorder-=trafficHeight;
+    mY=min(mY,tmpBotBorder-height);
 }
 
 bool CPEOPLE::isFinish(){

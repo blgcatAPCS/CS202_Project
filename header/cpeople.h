@@ -16,15 +16,21 @@ class CPEOPLE{
     const int height=3;
 
     const int topBorder=1;
-    const int botBorder=27;
+    const int botBorder=30;
     const int leftBorder=0;
     const int rightBorder=120;
+
+    const int trafficHeight=3;
+    const int trafficWidth=9;
     
     int HP=100;
     
+    bool isXInsideTraffic();
+
 
 public:
     CPEOPLE(string n="Unknown",int x = 0, int y = 0, int v=2, int yFin=1);
+
     void Up(int step);
     void Left(int step);
     void Right(int step);
