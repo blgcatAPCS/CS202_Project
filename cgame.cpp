@@ -127,6 +127,8 @@ void CGAME::saveGame(){
         cin>>choice;
     }
     if (choice=="n") return;
+    ofstream f(dataroot+dataFile,ios::app);
+    f<<cn->getName()<<endl;
     ofstream ofs(dataroot+cn->getName()+".txt");
     ofs<<level<<endl;
     cn->save(ofs);
@@ -145,8 +147,8 @@ void CGAME::loadGame(){
 void CGAME::newGame(){ 
     newGameMenu();
     string name;
-    cin.ignore();
     getline(cin,name,'\n');
+    // cin.ignore();
     cn=new CPEOPLE(name,60,26);
 }
 void CGAME::startGame(){

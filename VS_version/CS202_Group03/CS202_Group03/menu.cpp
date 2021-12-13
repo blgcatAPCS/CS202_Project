@@ -180,10 +180,27 @@ void loadGameMenu(){
     gotoXY(0,0);
     textColor(241);
     gotoXY(20,5);
+    int y=7;
     vector<string>names;
     cout << "No\t\t\tName\t\t\t\tLevel\t\tHP\t\tState";
-    //for (const auto & entry : directory_iterator(dataroot))
-      //  cout << entry.path() << endl;
+    string name,level,hp,state,x,y,finish;
+    int no=1;
+    ifstream f(dataroot+dataFile);
+    while (!f.eof())
+    {
+        f>>name;
+        names.push_back(name);
+        ifstream ifs(dataroot+name+".txt");
+        ifs>>level>>x>>y>>hp>>state>>finish;
+        gotoXY(20,y);
+        y+=2;
+        cout<<no++<<"\t\t\t"<<name<<"\t\t\t\t"<<level<<"\t\t"<<hp<<"\t\t"<<state;
+        ifs.close();
+    }
+    f.close();
+    if (no==1)
+        gotoXY(20,7); cout<<"Empty";
+
     _getch();
 }
 

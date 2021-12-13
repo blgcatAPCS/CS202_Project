@@ -13,7 +13,7 @@
 #include <vector>
 #include <thread>
 #include <chrono>
-#include <filesystem>
+// #include <filesystem>
 //Local header file
 #include "config.h"
 #include "console.h"
@@ -34,4 +34,5 @@ using namespace std::chrono; //timing
 #define freezing_time   3
 #define traffic_stop    2
 const string dataroot = "data/";
+const string dataFile = "dataFile.txt";
 #endif 

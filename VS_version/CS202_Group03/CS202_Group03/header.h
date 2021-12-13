@@ -34,4 +34,5 @@ using namespace std::chrono; //timing
 #define freezing_time   3
 #define traffic_stop    2
 const string dataroot = "data/";
+const string datafile = "dataFile.txt";
 #endif 
