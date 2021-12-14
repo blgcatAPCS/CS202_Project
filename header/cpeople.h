@@ -5,22 +5,14 @@
 #include "clane.h"
 
 class CPEOPLE{
+    string name;
     int mX, mY;
-<<<<<<< Updated upstream
-=======
     int velocity;
 
     vector<string> image={" ('') ","/[  ]\\","  UU  "};
 
->>>>>>> Stashed changes
     bool mState; //Trạng thái sống chết
-    int velocity;
     int yFinish;
-<<<<<<< Updated upstream
-    const int width=6;
-    const int height=3;
-
-=======
 
     int width;
     int height;
@@ -35,22 +27,16 @@ class CPEOPLE{
     
     int HP=100;
     
-    bool isXInsideTrafficLight();
+    bool isXInsideTraffic();
 
->>>>>>> Stashed changes
+
 public:
-    CPEOPLE(int x = 0, int y = 0, int v=2, int yFin=1);
+    CPEOPLE(string n="Unknown",int x = 0, int y = 0, int v=2, int yFin=1);
+
     void Up(int step);
     void Left(int step);
     void Right(int step);
     void Down(int step);
-<<<<<<< Updated upstream
-    bool isImpact(vector<LANE*> lanes);
-    bool isFinish();
-    bool isDead();
-    void draw();
-    void clear();
-=======
     void resetPos();
 
     void setHP(int num);
@@ -65,6 +51,5 @@ public:
     void load(ifstream &ifs);
     string getName();
     
->>>>>>> Stashed changes
 };
 #endif

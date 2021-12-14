@@ -10,7 +10,7 @@
 				"-g",
 				"${fileDirname}\\*.cpp",
 				"-o",
-				"${fileDirname}\\main.exe"
+				"${fileDirname}\\${fileBasenameNoExtension}.exe"
 			],
 			"options": {
 				"cwd": "${fileDirname}"
@@ -18,10 +18,7 @@
 			"problemMatcher": [
 				"$gcc"
 			],
-			"group": {
-				"kind": "build",
-				"isDefault": true
-			},
+			"group": "build",
 			"detail": "compiler: C:\\mingw32_posix\\bin\\g++.exe"
 		}
 	]

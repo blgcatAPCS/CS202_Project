@@ -2,8 +2,6 @@
 #define consoleh
 #include "header.h"
 
-using namespace std;
-
 class LANE;
 
 void fixConsoleWindow();

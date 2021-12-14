@@ -21,6 +21,7 @@ public:
     void move();
     void clear();
     void draw();
+    void save();
 };
 
 #endif

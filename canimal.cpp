@@ -1,7 +1,7 @@
 #include "header/header.h"
 
 CDINOSAUR::CDINOSAUR(int x, int y, bool isReverse)
-: OBSTACLE(x, y, isReverse, height, width){
+: OBSTACLE(x, y, isReverse, height, width,damage){
     if (!isReverse) {
         visual = new string[height]{
         {' ', ' ', ' ', ' ', char(219), char(219), char(223)},
@@ -37,7 +37,7 @@ int CDINOSAUR::getColor(){
 }
 
 CBIRD::CBIRD(int x, int y, bool isReverse)
-: OBSTACLE(x, y, isReverse, height, width){
+: OBSTACLE(x, y, isReverse, height, width,damage){
     if (!isReverse) {
         frames = 3;
         visuals.assign(frames, nullptr);
@@ -110,7 +110,7 @@ CBIRD::~CBIRD(){
 }
 
 CDUCK::CDUCK(int x, int y, bool isReverse)
-: OBSTACLE(x, y, isReverse, height, width){
+: OBSTACLE(x, y, isReverse, height, width,damage){
     if (!isReverse) {
         frames = 3;
         visuals.assign(frames, nullptr);

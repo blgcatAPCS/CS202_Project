@@ -4,9 +4,12 @@
 
 void clear();
 void drawMenu(int choice);
-void newGame();
-void loadGame();
+void newGameMenu();
+void loadGameMenu();
 void settingsMenu();
 void mainMenu();
+void resetMenu();
+void pauseMenu();
+void saveGameMenu();
 
 #endif

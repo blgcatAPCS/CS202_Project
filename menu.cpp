@@ -1,6 +1,7 @@
 #include "header/header.h"
 
 void clear(){
+    system("cls");
     textColor(255);
     gotoXY(0,0);
     for(int i = 0; i < 120*32; ++i){
@@ -162,26 +163,47 @@ void drawMenu(int choice){
             cout << setting[i];
         }
     }                                                                                                                                                                                                                                                                          
-    //clear();
-    //system("pause");
+    // clear();
+    // system("pause");
 }
 
-void newGame(){
+void newGameMenu(){
     clear();
     gotoXY(0,0);
     textColor(241);
-    gotoXY(34,14);
-    cout << "Request not yet processed! Enter to return to the menu";
-    getch();
+    gotoXY(25,14);
+    cout << "Good morning! Please enter your name to start rocking the game: ";
 }
 
-void loadGame(){
+void loadGameMenu(){
     clear();
     gotoXY(0,0);
     textColor(241);
-    gotoXY(34,14);
-    cout << "Request not yet processed! Enter to return to the menu";
-    getch();
+    gotoXY(20,5);
+    int y=7;
+    vector<string>names;
+    cout << "No\t\t\tName\t\t\t\tLevel\t\tHP\t\tState";
+    string name,level,hp,state,mx,my,finish;
+    int no=1;
+    ifstream f(dataroot+dataFile);
+    if (f)
+    while (!f.eof())
+    {
+        getline(f,name,'\n');
+        if (name=="") break;
+        names.push_back(name);
+        ifstream ifs(dataroot+name+".txt");
+        ifs>>level>>mx>>my>>hp>>state>>finish;
+        gotoXY(20,y);
+        y+=2;
+        cout<<no++<<"\t\t\t"<<name<<"\t\t\t\t"<<level<<"\t\t"<<hp<<"\t\t"<<state;
+        ifs.close();
+    }
+    f.close();
+    if (no==1)
+        {gotoXY(20,7); cout<<"Empty";}
+
+    _getch();
 }
 
 void settingsMenu(){
@@ -190,36 +212,26 @@ void settingsMenu(){
     textColor(241);
     gotoXY(34,14);
     cout << "Request not yet processed! Enter to return to the menu";
-    getch();
+    _getch();
 }
-
-void mainMenu(){
-    int choice = 0, c;
-    while(1){
-        drawMenu(choice);
-        switch (c = getch()) {
-            case UP:
-                choice = (choice + 3) % 4;
-                break;
-            case DOWN:
-                choice = (choice + 1) % 4;
-                break;
-            case ENTER: {
-                switch (choice) {
-                    case 0:
-                        newGame();
-                        break;
-                    case 1:
-                        loadGame();
-                        break;
-                    case 2: 
-                        settingsMenu();
-                        break;
-                    
-                    default:
-                        return;
-                }
-            }
-        }
-    }
+void resetMenu(){
+    clear();
+    gotoXY(0,0);
+    textColor(241);
+    gotoXY(25,14);
+    cout << "Do you really want to reset all the data? (y/n): ";
+}
+void pauseMenu(){
+    clear();
+    gotoXY(0,0);
+    textColor(241);
+    gotoXY(25,14);
+    cout << "Do you want to exit? (y/n): ";
+}
+void saveGameMenu(){
+    clear();
+    gotoXY(0,0);
+    textColor(241);
+    gotoXY(25,14);
+    cout << "Save your process? (y/n): ";
 }

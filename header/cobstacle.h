@@ -9,13 +9,13 @@ protected:
     int x, y;
     bool isReverse;
     int curOffset=0;
-
+    int damage;
 
     int height, width;
     string* visual;
 
 public:
-	OBSTACLE(int x = 0, int y = 0, bool isReverse = false, int height = 10, int width = 10);
+	OBSTACLE(int x = 0, int y = 0, bool isReverse = false, int height = 10, int width = 10,int damage=0);
 
 	virtual ~OBSTACLE();
 
@@ -34,6 +34,7 @@ public:
     //virtual void Move(int, int); //speed and direction control
 
     //virtual void Tell() = 0;
+    virtual int getDamage();
 
 	virtual void clear(const int& offset);
 

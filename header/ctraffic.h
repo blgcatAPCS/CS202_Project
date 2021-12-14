@@ -1,7 +1,7 @@
 #ifndef ctraffich
 #define ctraffich
 #include "header.h"
-#define MAX_TIME 50000000
+#define MAX_TIME 1000
 
 class cTraffic
 {

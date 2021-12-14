@@ -1,7 +1,7 @@
 #include "header/header.h"
 
 CTRUCK::CTRUCK(int x, int y, bool isReverse)
-: OBSTACLE(x, y, isReverse, height, width){
+: OBSTACLE(x, y, isReverse, height, width, damage){
     if (!isReverse) {
         frames = 3;
         visuals.assign(frames, nullptr);
@@ -81,7 +81,7 @@ CTRUCK::~CTRUCK(){
 }
 
 CCAR::CCAR(int x, int y, bool isReverse)
-: OBSTACLE(x, y, isReverse, height, width){
+: OBSTACLE(x, y, isReverse, height, width, damage){
     if (!isReverse) {
         frames = 3;
         visuals.assign(frames, nullptr);

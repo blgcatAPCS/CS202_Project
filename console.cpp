@@ -71,18 +71,7 @@ void unhidePointer()
 	SetConsoleCursorInfo(GetStdHandle(STD_OUTPUT_HANDLE), &Info);
 }
 
-<<<<<<< Updated upstream
-void boardGame() {
-    //grass
-    textColor(34);
-    for (int i = 0; i < (120 * 5); ++i) {
-        cout << ".";
-    }
-
-    //road
-=======
 void boardGame(vector<LANE*> lanes) {
->>>>>>> Stashed changes
     textColor(0);
     system("cls");
 

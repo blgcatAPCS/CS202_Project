@@ -12,6 +12,8 @@
 #include <fstream>
 #include <vector>
 #include <thread>
+#include <chrono>
+// #include <filesystem>
 //Local header file
 #include "config.h"
 #include "console.h"
@@ -25,5 +27,12 @@
 #include "menu.h"
 	
 using namespace std;
+using namespace std::chrono; //timing
+// using std::filesystem::directory_iterator; //file iter
 
+//Config
+#define freezing_time   3
+#define traffic_stop    2
+const string dataroot = "data/";
+const string dataFile = "dataFile.txt";
 #endif 
