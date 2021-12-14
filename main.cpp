@@ -35,10 +35,44 @@ int main()
     fixConsoleWindow();
     boardGame();
     CGAME g;
+<<<<<<< Updated upstream
     while (!g.getPeople().isImpact(g.getLanes()) && !g.getPeople().isFinish()){
         g.moveObstacles();
         char c=toupper(getch());
         g.updatePosPeople(c);
+=======
+    while(1){
+        drawMenu(choice);
+        switch (c = getch()) {
+            case UP:
+                choice = (choice + 3) % 4;
+                break;
+            case DOWN:
+                choice = (choice + 1) % 4;
+                break;
+            case ENTER: {
+                switch (choice) {
+                    case 0:
+                        g.newGame();
+                        g.startGame();
+                        g.terminate(1);
+                        break;
+                    case 1:
+                        g.loadGame();
+                        g.startGame();
+                        g.terminate(1);
+                        break;
+                    case 2: 
+                        settingsMenu();
+                        break;
+                    
+                    default:
+                        break;
+                }
+
+            }
+        }
+>>>>>>> Stashed changes
     }
     
     // cg.startGame();

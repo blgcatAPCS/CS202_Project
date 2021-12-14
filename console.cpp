@@ -71,6 +71,7 @@ void unhidePointer()
 	SetConsoleCursorInfo(GetStdHandle(STD_OUTPUT_HANDLE), &Info);
 }
 
+<<<<<<< Updated upstream
 void boardGame() {
     //grass
     textColor(34);
@@ -79,34 +80,67 @@ void boardGame() {
     }
 
     //road
+=======
+void boardGame(vector<LANE*> lanes) {
+>>>>>>> Stashed changes
     textColor(0);
-    for (int i = 0; i < (120 * 6); ++i) {
-        cout << ".";
+    system("cls");
+
+    for (auto lane : lanes){
+        OBSTACLE* obs=lane->getObstacles()[0];
+        textColor(obs->getColor());
+        gotoXY(0,obs->getPosY());
+        for (int i=0;i<120*obs->getHeight();++i){
+            cout << " ";
+        }
     }
 
-    //water
-    textColor(153);
-    for (int i = 0; i < (120 * 4); ++i) {
-        cout << ".";
+    //draw bottom
+    textColor(224);
+    gotoXY(0,26);
+    for (int i=0;i<consoleWidth*(consoleHeight-26);++i){
+        cout << " ";
     }
 
     //grass
-    textColor(34);
-    for (int i = 0; i < (120 * 5); ++i) {
-        cout << ".";
-    }
+    // gotoXY(0,0);
+    // textColor(34);
+    // for (int i = 0; i < (120 * 5); ++i) {
+    //     cout << ".";
+    // }
+
+    // //road
+    // textColor(0);
+    // for (int i = 0; i < (120 * 6); ++i) {
+    //     cout << ".";
+    // }
+
+    // //water
+    // textColor(153);
+    // for (int i = 0; i < (120 * 4); ++i) {
+    //     cout << ".";
+    // }
+
+    // //grass
+    // textColor(34);
+    // for (int i = 0; i < (120 * 5); ++i) {
+    //     cout << ".";
+    // }
     
-    //road
-    textColor(0);
-    for (int i = 0; i < (120 * 6); ++i) {
-        cout << ".";
-    }
+    // //road
+    // textColor(0);
+    // for (int i = 0; i < (120 * 6); ++i) {
+    //     cout << ".";
+    // }
 
-    //grass
-    textColor(238);
-    for (int i = 0; i < (120 * 4); ++i) {
-        cout << ".";
-    }
+    // //grass
+    // textColor(238);
+    // for (int i = 0; i < (120 * 4); ++i) {
+    //     cout << ".";
+    // }
+
+    //startLine
+
 
     //border
     textColor(0);

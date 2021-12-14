@@ -2,6 +2,10 @@
 #define consoleh
 #include "header.h"
 
+using namespace std;
+
+class LANE;
+
 void fixConsoleWindow();
 void setConsoleWindow(int w, int h);
 int wherex();
@@ -11,7 +15,7 @@ void textColor(int color);
 void clrscr();
 void hidePointer();
 void unhidePointer();
-void boardGame();
+void boardGame(std::vector<LANE*> lanes);
 void drawDinosaur(int offset, int x, int y, bool isReverse);
 void drawBird(int offset, int x, int y, bool isReverse);
 void drawCar(int offset, int x, int y, bool isReverse);

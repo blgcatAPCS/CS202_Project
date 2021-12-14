@@ -5,6 +5,11 @@ class CGAME{
     vector<LANE*> lanes;
     CPEOPLE *cn;
     cTraffic *traffic;
+<<<<<<< Updated upstream
+=======
+    int level=1;
+    bool freeze=false; //unharmed after impacted
+>>>>>>> Stashed changes
 public:
     CGAME(); //Chuẩn bị dữ liệu cho tất cả các đối tượng
     void drawGame(); //Thực hiện vẽ trò chơi ra màn hình sau khi có dữ liệu
@@ -16,11 +21,21 @@ public:
     void resetGame(); // Thực hiện thiết lập lại toàn bộ dữ liệu như lúc đầu
     void exitGame(HANDLE); // Thực hiện thoát Thread
     void startGame(); // Thực hiện bắt đầu vào trò chơi
+<<<<<<< Updated upstream
     // void loadGame(istream); // Thực hiện tải lại trò chơi đã lưu
     // void saveGame(istream); // Thực hiện lưu lại dữ liệu trò chơi
     void pauseGame(HANDLE); // Tạm dừng Thread
     void resumeGame(HANDLE); //Quay lai Thread
     void updatePosPeople(char c); //Thực hiện điều khiển di chuyển của CPEOPLE // Cat in charge
+=======
+    void newGame();
+    void loadGame(); // Thực hiện tải lại trò chơi đã lưu
+    void saveGame(); // Thực hiện lưu lại dữ liệu trò chơi
+    bool pauseGame(); // yes to exit, no to resume
+    void terminate(bool deleteCPEOPLE);
+    
+    bool updatePeople(std::chrono::high_resolution_clock::time_point &start); //Thực hiện điều khiển di chuyển của CPEOPLE // yes to exit
+>>>>>>> Stashed changes
     void moveObstacles();
 };
 #endif 
