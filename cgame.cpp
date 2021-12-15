@@ -14,7 +14,7 @@ void CGAME::initiateHard()
     // OBSTACLE* bird = new CBIRD();
     OBSTACLE* dinosaur = new CDINOSAUR();
 
-    lanes.emplace_back(new LANE(dinosaur, 21, 20, 8, 0));
+    lanes.emplace_back(new LANE(dinosaur, 22, 20, 8, 0));
     lanes.emplace_back(new LANE(car, 6, 20, 3, 1));
     lanes.emplace_back(new LANE(truck, 11, 20, 8, 0));
     lanes.emplace_back(new LANE(car, 16, 20, 10, 1));
@@ -56,10 +56,10 @@ void CGAME::initiateMedium()
     OBSTACLE* bird = new CBIRD();
     OBSTACLE* dinosaur = new CDINOSAUR();
 
-    lanes.emplace_back(new LANE(duck, 21, 20, 8, 0));
+    lanes.emplace_back(new LANE(duck, 22, 20, 8, 0));
     lanes.emplace_back(new LANE(car, 6, 20, 3, 1));
-    lanes.emplace_back(new LANE(dinosaur, 11, 20, 8, 0));
-    lanes.emplace_back(new LANE(bird, 16, 20, 10, 1));
+    lanes.emplace_back(new LANE(dinosaur, 12, 20, 8, 0));
+    lanes.emplace_back(new LANE(bird, 17, 20, 10, 1));
     lanes.emplace_back(new LANE(truck, 1, 20, 2, 1));
 
     delete truck;
@@ -91,7 +91,7 @@ bool CGAME::updatePeople(std::chrono::high_resolution_clock::time_point &start){
     
     if (_kbhit())
     {
-        cn->clear();
+        cn->clear(1);
         c=toupper(getch());
         switch (c){
         case 'A':
@@ -115,13 +115,13 @@ bool CGAME::updatePeople(std::chrono::high_resolution_clock::time_point &start){
         default:
             break;
         }
-        cn->draw();
+        cn->draw(1);
     }
     
     int dmg=getPeople().isImpact(getLanes());
     if (dmg)
     {
-        cn->draw();
+        cn->draw(1);
         if (!freeze)
         {
             cn->setHP(dmg);
@@ -195,9 +195,9 @@ void CGAME::newGame(){
 }
 void CGAME::startGame(){
     system("cls");
-    initiate();
-    boardGame();
-    cn->draw();
+    initiateEasy();
+    boardGameEasy();
+    cn->draw(1);
     std::chrono::high_resolution_clock::time_point start;
     while (!getPeople().isDead() && !getPeople().isFinish()){      
         moveObstacles();
@@ -206,7 +206,7 @@ void CGAME::startGame(){
             if (pauseGame())
                 return;
             else
-                boardGame();
+                boardGameEasy();
     }
 }
 bool CGAME::pauseGame(){

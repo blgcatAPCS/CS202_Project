@@ -42,8 +42,8 @@ public:
     bool isFinish();
     bool isDead();
 
-    void draw();
-    void clear();
+    void draw(int state);
+    void clear(int state);
     void save(ofstream &ofs);
     void load(ifstream &ifs);
     string getName();

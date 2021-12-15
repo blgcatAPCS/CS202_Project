@@ -71,43 +71,136 @@ void unhidePointer()
 	SetConsoleCursorInfo(GetStdHandle(STD_OUTPUT_HANDLE), &Info);
 }
 
-void boardGame() {
-    //grass
+void boardGameEasy(){
     gotoXY(0,0);
+
     textColor(34);
-    for (int i = 0; i < (120 * 5); ++i) {
+    for (int i = 0; i < (120 * 10); ++i)
         cout << ".";
-    }
 
-    //road
-    textColor(0);
-    for (int i = 0; i < (120 * 6); ++i) {
-        cout << ".";
-    }
-
-    //water
     textColor(153);
-    for (int i = 0; i < (120 * 4); ++i) {
+    for(int i = 0; i < (120* 6); ++i)
         cout << ".";
-    }
 
-    //grass
     textColor(34);
-    for (int i = 0; i < (120 * 5); ++i) {
+    for (int i = 0; i < (120 * 4); ++i)
         cout << ".";
-    }
     
-    //road
-    textColor(0);
-    for (int i = 0; i < (120 * 6); ++i) {
+    textColor(153);
+    for(int i = 0; i < (120* 5); ++i)
         cout << ".";
+
+    //border
+    textColor(0);
+    gotoXY(5, 29);
+    cout << char(219);
+
+    gotoXY(5, 28);
+    cout << char(219);
+
+    gotoXY(8, 29);
+    cout << char(219);
+    
+    gotoXY(8, 28);
+    cout << char(219);
+
+    textColor(224);
+    gotoXY(5, 27);
+    cout << char(220);
+
+    gotoXY(6, 27);
+    cout << char(220);
+
+    gotoXY(7, 27);
+    cout << char(220);
+
+    gotoXY(8, 27);
+    cout << char(220);
+
+    textColor(254);
+    for(int i = 0; i < 2; ++i){
+        gotoXY(6 + i, 28);
+        cout << char(219);
+    }
+    textColor(170);
+    for(int i = 0; i < 2; ++i){
+        gotoXY(6 + i, 29);
+        cout << char(219);
     }
 
-    //grass
-    textColor(238);
-    for (int i = 0; i < (120 * 4); ++i) {
+    textColor(224);
+}
+
+void boardGameMedium(){
+    gotoXY(0,0);
+
+    textColor(0);
+    for (int i = 0; i < (120 * 11); ++i)
         cout << ".";
+
+    textColor(34);
+    for(int i = 0; i < (120* 10); ++i)
+        cout << ".";
+
+    textColor(153);
+    for (int i = 0; i < (120 * 5); ++i)
+        cout << ".";
+
+    //border
+    textColor(0);
+    gotoXY(5, 29);
+    cout << char(219);
+
+    gotoXY(5, 28);
+    cout << char(219);
+
+    gotoXY(8, 29);
+    cout << char(219);
+    
+    gotoXY(8, 28);
+    cout << char(219);
+
+    textColor(224);
+    gotoXY(5, 27);
+    cout << char(220);
+
+    gotoXY(6, 27);
+    cout << char(220);
+
+    gotoXY(7, 27);
+    cout << char(220);
+
+    gotoXY(8, 27);
+    cout << char(220);
+
+    textColor(254);
+    for(int i = 0; i < 2; ++i){
+        gotoXY(6 + i, 28);
+        cout << char(219);
     }
+    textColor(170);
+    for(int i = 0; i < 2; ++i){
+        gotoXY(6 + i, 29);
+        cout << char(219);
+    }
+
+    textColor(224);
+}
+
+void boardGameHard() {
+    gotoXY(0,0);
+
+    textColor(34);
+    for (int i = 0; i < (120 * 5); ++i)
+        cout << ".";
+
+    textColor(0);
+    for(int i = 0; i < (120* 16); ++i)
+        cout << ".";
+
+    textColor(34);
+    for (int i = 0; i < (120 * 5); ++i)
+        cout << ".";
 
     //border
     textColor(0);
