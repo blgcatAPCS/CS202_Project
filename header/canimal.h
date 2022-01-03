@@ -15,6 +15,8 @@ public:
 	void draw(const int &offset);
 	void clear(const int &offset);
 	//void Tell();
+
+	int getColor();
 };
 
 class CBIRD: public OBSTACLE{
@@ -32,6 +34,8 @@ public:
 	void clear(const int &offset);
 	//void Tell();
 	~CBIRD();
+
+	int getColor();
 };
 
 class CDUCK: public OBSTACLE{
@@ -49,6 +53,8 @@ public:
 	void clear(const int &offset);
 	//void Tell();
 	~CDUCK();
+
+	int getColor();
 };
 
 #endif 

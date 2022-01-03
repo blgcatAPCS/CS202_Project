@@ -9,11 +9,14 @@ class CPEOPLE{
     int mX, mY;
     int velocity;
 
+    vector<string> image={" ('') ","/[  ]\\","  UU  "};
+
     bool mState; //Trạng thái sống chết
     int yFinish;
+    bool win=false;
 
-    const int width=6;
-    const int height=3;
+    int width;
+    int height;
 
     const int topBorder=1;
     const int botBorder=30;
@@ -35,6 +38,7 @@ public:
     void Left(int step);
     void Right(int step);
     void Down(int step);
+    void resetPos();
 
     void setHP(int num);
 
@@ -42,8 +46,8 @@ public:
     bool isFinish();
     bool isDead();
 
-    void draw(int state);
-    void clear(int state);
+    void draw(vector<LANE*> lanes);
+    void clear(vector<LANE*> lanes);
     void save(ofstream &ofs);
     void load(ifstream &ifs);
     string getName();

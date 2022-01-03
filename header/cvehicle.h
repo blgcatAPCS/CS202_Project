@@ -18,6 +18,7 @@ public:
 	OBSTACLE* create(int x = 0, int y = 0, bool isReverse = false);
 	void draw(const int &offset);
 	void clear(const int &offset);
+	int getColor();
 	//void Tell();
 	~CTRUCK();
 };
@@ -36,6 +37,7 @@ public:
 	OBSTACLE* create(int x = 0, int y = 0, bool isReverse = false);
 	void draw(const int &offset);
 	void clear(const int &offset);
+	int getColor();
 	//void Tell();
 	~CCAR();
 };

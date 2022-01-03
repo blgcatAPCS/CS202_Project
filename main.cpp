@@ -28,12 +28,20 @@ int main()
                     case 0:
                         g.newGame();
                         g.startGame();
-                        g.terminate();
+                        g.terminate(1);
                         break;
                     case 1:
-                        g.loadGame();
-                        g.startGame();
-                        g.terminate();
+                        try{
+                            g.loadGame();
+                            g.startGame();
+                            g.terminate(1);
+                        }
+                        catch(...){
+                            clrscr();
+                            gotoXY(25,11);
+                            cout << "Press any key to go back to the main menu";
+                            _getch();
+                        }
                         break;
                     case 2: 
                         settingsMenu();

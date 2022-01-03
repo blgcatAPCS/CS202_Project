@@ -168,11 +168,12 @@ void drawMenu(int choice){
 }
 
 void newGameMenu(){
-    clear();
+    // clear();
     gotoXY(0,0);
     textColor(241);
     gotoXY(25,14);
     cout << "Good morning! Please enter your name to start rocking the game: ";
+
 }
 
 void loadGameMenu(){
@@ -181,28 +182,31 @@ void loadGameMenu(){
     textColor(241);
     gotoXY(20,5);
     int y=7;
-    vector<string>names;
-    cout << "No\t\t\tName\t\t\t\tLevel\t\tHP\t\tState";
+    vector<string>names=getSaveNames();
+    cout <<setw(3)<< "No"<<setw(30)<<"tName"<<setw(15)<<"Level"<<setw(15)<<"HP"<<setw(15)<<"State";
     string name,level,hp,state,mx,my,finish;
     int no=1;
     ifstream f(dataroot+dataFile);
-    if (f)
-    while (!f.eof())
-    {
-        getline(f,name,'\n');
-        if (name=="") break;
-        names.push_back(name);
-        ifstream ifs(dataroot+name+".txt");
-        ifs>>level>>mx>>my>>hp>>state>>finish;
-        gotoXY(20,y);
-        y+=2;
-        cout<<no++<<"\t\t\t"<<name<<"\t\t\t\t"<<level<<"\t\t"<<hp<<"\t\t"<<state;
-        ifs.close();
-    }
-    f.close();
-    if (no==1)
+    if (names.size())
+        for (string name:names){
+            ifstream ifs(dataroot+name+".txt");
+            ifs>>level>>mx>>my>>hp>>state>>finish;
+            gotoXY(20,y);
+            y+=2;
+            cout<<setw(3)<<no++<<setw(30)<<name<<setw(15)<<level<<setw(15)<<hp;
+            if (finish=="1")
+            cout<<setw(15)<<"Win";
+            else if (state=="1")
+            cout<<setw(15)<<"Playing";
+            else if (state=="0")
+            cout<<setw(15)<<"Lose";
+            ifs.close();
+        }
+    else
         {gotoXY(20,7); cout<<"Empty";}
 
+    gotoXY(10,5);
+    cout<<"Type No of playing players to load game or 0 to back: ";
     _getch();
 }
 
@@ -234,4 +238,47 @@ void saveGameMenu(){
     textColor(241);
     gotoXY(25,14);
     cout << "Save your process? (y/n): ";
+}
+
+string getSaveGame(vector<string> name){
+    int n=name.size();
+    if (!n) throw "No save file";
+    int choice=-1;
+    while (1){
+        gotoXY(20,7+n*2+3);
+        cout << "Please enter the save file (1-" << n << ", 0 to cancel): ";
+        cin >> choice;
+        if (choice && (choice<1 || choice>n)) {
+            gotoXY(20,7+2+n+2);
+            cout << "Sorry, the save file is not available! Please input again\n";
+        }
+        else break;
+    }
+    if (choice) return name[choice-1];
+    else throw "Player cancel";
+}
+
+vector<string> getSaveNames(){
+    vector<string> names;
+    ifstream f(dataroot+dataFile);
+    if (f)
+        while (!f.eof())
+        {
+            string name;
+            getline(f,name,'\n');
+            if (name=="") break;
+            names.push_back(name);
+        }
+    f.close();
+    return names;
+}
+
+bool checkNameIsExist(string name){
+    if (name=="dataFile") return 1;
+    vector<string> names=getSaveNames();
+    if (!names.size()) return 0;
+    for (string n:names){
+        if (n==name) return 1;
+    }
+    return 0;
 }

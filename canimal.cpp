@@ -32,6 +32,10 @@ void CDINOSAUR::clear(const int &offset){
     OBSTACLE::clear(offset);
 }
 
+int CDINOSAUR::getColor(){
+    return 47;
+}
+
 CBIRD::CBIRD(int x, int y, bool isReverse)
 : OBSTACLE(x, y, isReverse, height, width,damage){
     if (!isReverse) {
@@ -94,6 +98,10 @@ void CBIRD::clear(const int &offset){
     visual = visuals[abs(offset) % frames];
     textColor(34);
     OBSTACLE::clear(offset);
+}
+
+int CBIRD::getColor(){
+    return 47;
 }
 
 CBIRD::~CBIRD(){
@@ -163,6 +171,10 @@ void CDUCK::clear(const int &offset){
     visual = visuals[abs(offset) % frames];
     textColor(153);
     OBSTACLE::clear(offset);
+}
+
+int CDUCK::getColor(){
+    return 158;
 }
 
 CDUCK::~CDUCK(){

@@ -27,6 +27,8 @@ public:
 
     virtual int getPosY();
 
+    virtual int getColor()=0;
+
 	virtual OBSTACLE* create(int x, int y, bool isReverse) = 0;
 
     //virtual void Move(int, int); //speed and direction control

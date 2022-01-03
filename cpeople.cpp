@@ -4,10 +4,12 @@ using namespace std;
 
 CPEOPLE::CPEOPLE(string n, int x, int y, int v, int yFin)
 :name(n), mX(x), mY(y), mState(1), velocity(v), yFinish(yFin){
-    draw(1);
+    // draw(lanes);
+    width=image[0].size();
+    height=image.size();
 }
 
-void CPEOPLE::draw(int state){
+void CPEOPLE::draw(vector<LANE*> lanes){
     textColor(236);
 
     gotoXY(11, 29);
@@ -23,274 +25,176 @@ void CPEOPLE::draw(int state){
         cout << char(219);
     }
 
-    if(state == 1){
-        if(mY >= 25){
-            textColor(224);
-        }
-        else if(mY == 24){
-            textColor(158);
-            gotoXY(mX, mY); cout << " ('') ";
-            textColor(224);
-            gotoXY(mX, mY + 1); cout << "/[  ]\\";
-            gotoXY(mX, mY + 2); cout << "  UU  ";
-            
-            return;
-        }
-        else if(mY >= 20){
-            textColor(158); 
-        }
-        else if(mY == 18){
-            textColor(47);
-            gotoXY(mX, mY); cout << " ('') ";
-            gotoXY(mX, mY + 1); cout << "/[  ]\\";
-            textColor(158);
-            gotoXY(mX, mY + 2); cout << "  UU  ";
-            return;
-        }
-        else if (mY >= 16){
-            textColor(47);
-        }
-        else if(mY == 14){
-            textColor(158);
-            gotoXY(mX, mY); cout << " ('') ";
-            gotoXY(mX, mY + 1); cout << "/[  ]\\";
-            textColor(47);
-            gotoXY(mX, mY + 2); cout << "  UU  ";
-            return;
-        }
-        else if (mY >= 10){
-            textColor(158);
-        }
-        else if(mY == 8){
-            textColor(47);
-            gotoXY(mX, mY); cout << " ('') ";
-            gotoXY(mX, mY + 1); cout << "/[  ]\\";
-            textColor(158);
-            gotoXY(mX, mY + 2); cout << "  UU  ";
-            return;
-        }
-        else {
-            textColor(47);
-        }
-    }
-    else if(state == 2){
-        if(mY >= 26){
-            textColor(224);
-        }
-        else if(mY == 24){
-            textColor(158);
-            gotoXY(mX, mY); cout << " ('') ";
-            gotoXY(mX, mY + 1); cout << "/[  ]\\";
-            textColor(224);
-            gotoXY(mX, mY + 2); cout << "  UU  ";
-            
-            return;
-        }
-        else if(mY >= 21){
-            textColor(158); 
-        }
-        else if(mY == 20){
-            textColor(47);
-            gotoXY(mX, mY); cout << " ('') ";
-            textColor(158);
-            gotoXY(mX, mY + 1); cout << "/[  ]\\";
-            gotoXY(mX, mY + 2); cout << "  UU  ";
-            return;
-        }
-        else if (mY >= 11){
-            textColor(47);
-        }
-        else if(mY == 10){
-            textColor(15);
-            gotoXY(mX, mY); cout << " ('') ";
-            textColor(47);
-            gotoXY(mX, mY + 1); cout << "/[  ]\\";
-            gotoXY(mX, mY + 2); cout << "  UU  ";
-            return;
-        }
-        else {
-            textColor(15);
-        }
-    }
-    else if(state == 3){
-        if(mY >= 26){
-            textColor(224);
-        }
-        else if(mY == 24){
-            textColor(47);
-            gotoXY(mX, mY); cout << " ('') ";
-            gotoXY(mX, mY + 1); cout << "/[  ]\\";
-            textColor(224);
-            gotoXY(mX, mY + 2); cout << "  UU  ";
-            
-            return;
-        }
-        else if(mY >= 21){
-            textColor(47); 
-        }
-        else if(mY == 20){
-            textColor(15);
-            gotoXY(mX, mY); cout << " ('') ";
-            textColor(47);
-            gotoXY(mX, mY + 1); cout << "/[  ]\\";
-            gotoXY(mX, mY + 2); cout << "  UU  ";
-            return;
-        }
-        else if (mY >= 5){
-            textColor(15);
-        }
-        else if(mY == 4){
-            textColor(47);
-            gotoXY(mX, mY); cout << " ('') ";
-            textColor(15);
-            gotoXY(mX, mY + 1); cout << "/[  ]\\";
-            gotoXY(mX, mY + 2); cout << "  UU  ";
-            return;
-        }
-        else {
-            textColor(47);
-        }
-    }
-    gotoXY(mX, mY); cout << " ('') ";
-    gotoXY(mX, mY + 1); cout << "/[  ]\\";
-    gotoXY(mX, mY + 2); cout << "  UU  ";
-}
-
-void CPEOPLE::clear(int state) {
-    if(state == 1){
-        if(mY >= 25){
-            textColor(224);
-        }
-        else if(mY == 24){
-            textColor(158);
-            gotoXY(mX, mY); cout << "      ";
-            textColor(224);
-            gotoXY(mX, mY + 1); cout << "      ";
-            gotoXY(mX, mY + 2); cout << "      ";
-            
-            return;
-        }
-        else if(mY >= 20){
-            textColor(158); 
-        }
-        else if(mY == 18){
-            textColor(47);
-            gotoXY(mX, mY); cout << "      ";
-            gotoXY(mX, mY + 1); cout << "      ";
-            textColor(158);
-            gotoXY(mX, mY + 2); cout << "      ";
-            return;
-        }
-        else if (mY >= 16){
-            textColor(47);
-        }
-        else if(mY == 14){
-            textColor(158);
-            gotoXY(mX, mY); cout << "      ";
-            gotoXY(mX, mY + 1); cout << "      ";
-            textColor(47);
-            gotoXY(mX, mY + 2); cout << "      ";
-            return;
-        }
-        else if (mY >= 10){
-            textColor(158);
-        }
-        else if(mY == 8){
-            textColor(47);
-            gotoXY(mX, mY); cout << "      ";
-            gotoXY(mX, mY + 1); cout << "      ";
-            textColor(158);
-            gotoXY(mX, mY + 2); cout << "      ";
-            return;
-        }
-        else {
-            textColor(47);
-        }
-    }
-    else if (state == 2){
-        if(mY >= 26){
-            textColor(224);
-        }
-        else if(mY == 24){
-            textColor(158);
-            gotoXY(mX, mY); cout << "      ";
-            gotoXY(mX, mY + 1); cout << "      ";
-            textColor(224);
-            gotoXY(mX, mY + 2); cout << "      ";
-            
-            return;
-        }
-        else if(mY >= 21){
-            textColor(158); 
-        }
-        else if(mY == 20){
-            textColor(47);
-            gotoXY(mX, mY); cout << "      ";
-            textColor(158);
-            gotoXY(mX, mY + 1); cout << "      ";
-            gotoXY(mX, mY + 2); cout << "      ";
-            return;
-        }
-        else if (mY >= 11){
-            textColor(47);
-        }
-        else if(mY == 10){
-            textColor(15);
-            gotoXY(mX, mY); cout << "      ";
-            textColor(47);
-            gotoXY(mX, mY + 1); cout << "      ";
-            gotoXY(mX, mY + 2); cout << "      ";
-            return;
-        }
-        else {
-            textColor(15);
-        }
-    }
-    else if(state == 3){
-        if(mY >= 26){
-            textColor(224);
-        }
-        else if(mY == 24){
-            textColor(47);
-            gotoXY(mX, mY); cout << "      ";
-            gotoXY(mX, mY + 1); cout << "      ";
-            textColor(224);
-            gotoXY(mX, mY + 2); cout << "      ";
-            
-            return;
-        }
-        else if(mY >= 21){
-            textColor(47); 
-        }
-        else if(mY == 20){
-            textColor(15);
-            gotoXY(mX, mY); cout << "      ";
-            textColor(47);
-            gotoXY(mX, mY + 1); cout << "      ";
-            gotoXY(mX, mY + 2); cout << "      ";
-            return;
-        }
-        else if (mY >= 5){
-            textColor(15);
-        }
-        else if(mY == 4){
-            textColor(47);
-            gotoXY(mX, mY); cout << "      ";
-            textColor(15);
-            gotoXY(mX, mY + 1); cout << "      ";
-            gotoXY(mX, mY + 2); cout << "      ";
-            return;
-        }
-        else if(mY >= 0){
-            textColor(47);
+    int color=0;
+    for (int i=0;i<height;++i){
+        if (mY+i>=26 && mY+i<=consoleHeight){
+            color=224;
         }
         else{
-            textColor(224);
+            color=15;
+            for (auto lane:lanes){
+                OBSTACLE *obs=lane->getObstacles()[0];
+                if (obs->getPosY()<=mY+i && mY+i<obs->getPosY()+obs->getHeight()){
+                    color=obs->getColor();
+                    break;
+                }
+                if (color!=15) break;
+            }
         }
+        
+        textColor(color);
+        gotoXY(mX,mY+i); cout << image[i];
     }
-    gotoXY(mX, mY); cout << "      ";
-    gotoXY(mX, mY + 1); cout << "      ";
-    gotoXY(mX, mY + 2); cout << "      ";
+    // if(mY >= 26 && mY <= consoleHeight){
+    //     textColor(224);
+    // }
+    // else if(mY == 24){
+    //     textColor(15);
+    //     gotoXY(mX, mY); cout << " ('') ";
+    //     gotoXY(mX, mY + 1); cout << "/[  ]\\";
+    //     textColor(224);
+    //     gotoXY(mX, mY + 2); cout << "  UU  ";
+
+    //     return;
+    // }
+    // else if(mY >= 20){
+    //     textColor(15);
+    // }
+    // else if(mY == 18){
+    //     textColor(47);
+    //     gotoXY(mX, mY); cout << " ('') ";
+    //     gotoXY(mX, mY + 1); cout << "/[  ]\\";
+    //     textColor(15);
+    //     gotoXY(mX, mY + 2); cout << "  UU  ";
+
+    //     return;
+    // }
+    // else if(mY > 15){
+    //     textColor(47);
+    // }
+    // else if(mY == 14){
+    //     textColor(159);
+    //     gotoXY(mX, mY); cout << " ('') ";
+    //     textColor(47);
+    //     gotoXY(mX, mY + 1); cout << "/[  ]\\";
+    //     gotoXY(mX, mY + 2); cout << "  UU  ";
+    //     return;
+    // }
+    // else if(mY > 11){
+    //     textColor(159);
+    // }
+    // else if(mY == 10){
+    //     textColor(15);
+    //     gotoXY(mX, mY); cout << " ('') ";
+    //     textColor(159);
+    //     gotoXY(mX, mY + 1); cout << "/[  ]\\";
+    //     gotoXY(mX, mY + 2); cout << "  UU  ";
+    //     return;
+    // }
+    // else if(mY > 5){
+    //     textColor(15);
+    // }
+    // else if(mY == 4){
+    //     textColor(47);
+    //     gotoXY(mX, mY); cout << " ('') ";
+    //     textColor(15);
+    //     gotoXY(mX, mY + 1); cout << "/[  ]\\";
+    //     gotoXY(mX, mY + 2); cout << "  UU  ";
+    //     return;
+    // }
+    // else if(mY >= 0){
+    //     textColor(47);
+    // }
+    // gotoXY(mX, mY); cout << " ('') ";
+    // gotoXY(mX, mY + 1); cout << "/[  ]\\";
+    // gotoXY(mX, mY + 2); cout << "  UU  ";
+}
+
+void CPEOPLE::clear(vector<LANE*> lanes) {
+    int color=0;
+    for (int i=0;i<height;++i){
+        if (mY+i>=26 && mY+i<=consoleHeight){
+            color=224;
+        }
+        else{
+            color=15;
+            for (auto lane:lanes){
+                OBSTACLE *obs=lane->getObstacles()[0];
+                if (obs->getPosY()<=mY+i && mY+i<obs->getPosY()+obs->getHeight()){
+                    color=obs->getColor();
+                    break;
+                }
+                if (color!=15) break;
+            }
+        }
+        
+        textColor(color);
+        gotoXY(mX,mY+i); cout << "      ";
+    }
+    // if(mY >= 26 && mY <= consoleHeight){
+    //     textColor(224);
+    // }
+    // else if(mY == 24){
+    //     textColor(15);
+    //     gotoXY(mX, mY); cout << "      ";
+    //     gotoXY(mX, mY + 1); cout << "      ";
+    //     textColor(224);
+    //     gotoXY(mX, mY + 2); cout << "      ";
+
+    //     return;
+    // }
+    // else if(mY >= 20){
+    //     textColor(15);
+    // }
+    // else if(mY == 18){
+    //     textColor(47);
+    //     gotoXY(mX, mY); cout << "      ";
+    //     gotoXY(mX, mY + 1); cout << "      ";
+    //     textColor(15);
+    //     gotoXY(mX, mY + 2); cout << "      ";
+
+    //     return;
+    // }
+    // else if(mY > 15){
+    //     textColor(47);
+    // }
+    // else if(mY == 14){
+    //     textColor(159);
+    //     gotoXY(mX, mY); cout << "      ";
+    //     textColor(47);
+    //     gotoXY(mX, mY + 1); cout << "      ";
+    //     gotoXY(mX, mY + 2); cout << "      ";
+    //     return;
+    // }
+    // else if(mY > 11){
+    //     textColor(159);
+    // }
+    // else if(mY == 10){
+    //     textColor(15);
+    //     gotoXY(mX, mY); cout << "      ";
+    //     textColor(159);
+    //     gotoXY(mX, mY + 1); cout << "      ";
+    //     gotoXY(mX, mY + 2); cout << "      ";
+    //     return;
+    // }
+    // else if(mY > 5){
+    //     textColor(15);
+    // }
+    // else if(mY == 4){
+    //     textColor(47);
+    //     gotoXY(mX, mY); cout << "      ";
+    //     textColor(15);
+    //     gotoXY(mX, mY + 1); cout << "      ";
+    //     gotoXY(mX, mY + 2); cout << "      ";
+    //     return;
+    // }
+    // else if(mY >= 0){
+    //     textColor(47);
+    // }
+
+    // gotoXY(mX, mY); cout << "      ";
+    // gotoXY(mX, mY + 1); cout << "      ";
+    // gotoXY(mX, mY + 2); cout << "      ";
 }
 
 void CPEOPLE::Up(int step){
@@ -318,12 +222,21 @@ void CPEOPLE::Down(int step){
     mY=min(mY,tmpBotBorder-height);
 }
 
+void CPEOPLE::resetPos(){
+    mX=60;
+    mY=26;
+}
+
 bool CPEOPLE::isFinish(){
-    return mY<=yFinish;
+    if (mY<=yFinish)
+        win=true;
+    return win;
 }
 
 bool CPEOPLE::isDead(){
-    return HP==0;
+    if (HP==0)
+        mState=false;
+    return mState;
 }
 
 int CPEOPLE::isImpact(vector<LANE*> lanes){
@@ -352,7 +265,7 @@ void CPEOPLE::save(ofstream &ofs)
     ofs<<mX<<" "<<mY<<endl;
     ofs<<HP<<endl;
     ofs<<mState<<endl;
-    ofs<<yFinish;
+    ofs<<win;
 }
 string CPEOPLE::getName(){
     return name;
@@ -362,5 +275,5 @@ void CPEOPLE::load(ifstream &ifs)
     ifs>>mX>>mY;
     ifs>>HP;
     ifs>>mState;
-    ifs>>yFinish;
+    ifs>>win;
 }

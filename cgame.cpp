@@ -14,7 +14,7 @@ void CGAME::initiateHard()
     // OBSTACLE* bird = new CBIRD();
     OBSTACLE* dinosaur = new CDINOSAUR();
 
-    lanes.emplace_back(new LANE(dinosaur, 22, 20, 8, 0));
+    lanes.emplace_back(new LANE(dinosaur, 21, 20, 8, 0));
     lanes.emplace_back(new LANE(car, 6, 20, 3, 1));
     lanes.emplace_back(new LANE(truck, 11, 20, 8, 0));
     lanes.emplace_back(new LANE(car, 16, 20, 10, 1));
@@ -56,10 +56,10 @@ void CGAME::initiateMedium()
     OBSTACLE* bird = new CBIRD();
     OBSTACLE* dinosaur = new CDINOSAUR();
 
-    lanes.emplace_back(new LANE(duck, 22, 20, 8, 0));
+    lanes.emplace_back(new LANE(duck, 21, 20, 8, 0));
     lanes.emplace_back(new LANE(car, 6, 20, 3, 1));
-    lanes.emplace_back(new LANE(dinosaur, 12, 20, 8, 0));
-    lanes.emplace_back(new LANE(bird, 17, 20, 10, 1));
+    lanes.emplace_back(new LANE(dinosaur, 11, 20, 8, 0));
+    lanes.emplace_back(new LANE(bird, 16, 20, 10, 1));
     lanes.emplace_back(new LANE(truck, 1, 20, 2, 1));
 
     delete truck;
@@ -68,8 +68,9 @@ void CGAME::initiateMedium()
     delete bird;
     delete dinosaur;
 }
+
 CGAME::~CGAME(){
-    terminate();
+    terminate(1);
 }
 
 void CGAME::moveObstacles(){
@@ -86,12 +87,26 @@ CPEOPLE CGAME::getPeople(){
 }
 
 bool CGAME::updatePeople(std::chrono::high_resolution_clock::time_point &start){
+    cn->draw(lanes);
+
     char c;
-    
+   
+    int dmg=getPeople().isImpact(getLanes());
+    if (dmg)
+    {
+        cn->draw(lanes);
+        if (!freeze)
+        {
+            cn->setHP(dmg);
+            freezing(start);
+        }
+    }
+    if (freeze)
+        freezing(start);    
     
     if (_kbhit())
     {
-        cn->clear(1);
+        cn->clear(lanes);
         c=toupper(getch());
         switch (c){
         case 'A':
@@ -115,21 +130,7 @@ bool CGAME::updatePeople(std::chrono::high_resolution_clock::time_point &start){
         default:
             break;
         }
-        cn->draw(1);
     }
-    
-    int dmg=getPeople().isImpact(getLanes());
-    if (dmg)
-    {
-        cn->draw(1);
-        if (!freeze)
-        {
-            cn->setHP(dmg);
-            freezing(start);
-        }
-    }
-    if (freeze)
-        freezing(start);
     return false;
 }
 
@@ -169,45 +170,99 @@ void CGAME::saveGame(){
         cin>>choice;
     }
     if (choice=="n") return;
-    ofstream f(dataroot+dataFile,ios::app);
-    f<<cn->getName()<<endl;
-    ofstream ofs(dataroot+cn->getName()+".txt");
+
+    if (!checkNameIsExist(cn->getName())){
+        ofstream f(dataroot+dataFile,ios::app);
+        f<<cn->getName()<<endl;
+        f.close();
+    }
+
+    ofstream ofs(dataroot+cn->getName()+".txt",ios::trunc);
     ofs<<level<<endl;
     cn->save(ofs);
     ofs.close();
 }
 void CGAME::loadGame(){
     loadGameMenu();
-    string name;
+    terminate(1);
+    string name=getSaveGame(getSaveNames());
     // ifstream ifs(dataroot+name+".txt");
-    ifstream ifs(dataroot+".txt");
+    ifstream ifs(dataroot+name+".txt");
     ifs>>level;
-    cn=new CPEOPLE;
+    cn=new CPEOPLE(name);
     cn->load(ifs);
     ifs.close();
 }
 void CGAME::newGame(){ 
-    newGameMenu();
+    vector<string> names=getSaveNames();
     string name;
-    getline(cin,name,'\n');
+    while (1){
+        clear();
+        newGameMenu();
+        fflush(stdin);
+        getline(cin,name);
+        if (checkNameIsExist(name)){
+            gotoXY(25,15);
+            if (name=="dataFile"){
+                cout << "This name is invalid! Press any key to get another one.";
+                _getch();
+            }
+            else {
+                cout << "This name is already created!";
+                gotoXY(25,16);
+                cout << "Do you want to keep this name? (we will override save file if you keep this) (y/n):";
+                char choice;
+                cin >> choice;
+                if (choice=='y') break;                
+            }
+        }
+        else break;
+    }
     // cin.ignore();
     cn=new CPEOPLE(name,60,26);
+    // level=1;
 }
 void CGAME::startGame(){
-    system("cls");
-    initiateHard();
-    boardGameHard();
-    cn->draw(1);
-    std::chrono::high_resolution_clock::time_point start;
-    while (!getPeople().isDead() && !getPeople().isFinish()){      
-        moveObstacles();
-        bool exitChoice=updatePeople(start);
-        if (exitChoice)
-            if (pauseGame())
-                return;
-            else
-                boardGameHard();
+    while (!getPeople().isDead() && level<=3){
+        textColor(0);
+        system("cls");
+        terminate(0);
+        cn->resetPos();
+        switch (level)
+        {
+        case 1:
+            initiateEasy();
+            break;
+
+        case 2:
+            initiateMedium();
+            break;
+
+        case 3:
+            initiateHard();
+            break;
+        
+        default:
+            return;
+        }
+        boardGame(lanes);
+        cn->draw(lanes);
+        std::chrono::high_resolution_clock::time_point start;
+
+        while (!getPeople().isDead() && !getPeople().isFinish()){
+            moveObstacles();
+            bool exitChoice=updatePeople(start);
+            if (exitChoice)
+                if (pauseGame())
+                    return;
+                else
+                    boardGame(lanes);
+        }
+
+        level+=!(getPeople().isDead());
     }
+    
+    saveGame();
 }
 bool CGAME::pauseGame(){
     pauseMenu();
@@ -223,8 +278,12 @@ bool CGAME::pauseGame(){
     return true;
 }
 
-void CGAME::terminate(){
+void CGAME::terminate(bool deleteCPEOPLE){
     lanes.clear();
-    delete cn;
+    if (deleteCPEOPLE){
+        delete cn;
+        cn=0;
+    }
     delete traffic;
+    traffic=0;
 }

@@ -71,6 +71,10 @@ void CTRUCK::clear(const int &offset){
     OBSTACLE::clear(offset);
 }
 
+int CTRUCK::getColor(){
+    return 15;
+}
+
 CTRUCK::~CTRUCK(){
     for (string*& visual : visuals)
         delete[] visual;
@@ -144,6 +148,10 @@ void CCAR::clear(const int &offset){
     visual = visuals[abs(offset) % frames];
     textColor(0);
     OBSTACLE::clear(offset);
+}
+
+int CCAR::getColor(){
+    return 15;
 }
 
 CCAR::~CCAR(){
