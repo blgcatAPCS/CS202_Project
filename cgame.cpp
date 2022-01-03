@@ -195,8 +195,8 @@ void CGAME::newGame(){
 }
 void CGAME::startGame(){
     system("cls");
-    initiateEasy();
-    boardGameEasy();
+    initiateHard();
+    boardGameHard();
     cn->draw(1);
     std::chrono::high_resolution_clock::time_point start;
     while (!getPeople().isDead() && !getPeople().isFinish()){      
@@ -206,7 +206,7 @@ void CGAME::startGame(){
             if (pauseGame())
                 return;
             else
-                boardGameEasy();
+                boardGameHard();
     }
 }
 bool CGAME::pauseGame(){
