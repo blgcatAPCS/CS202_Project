@@ -194,6 +194,7 @@ void CGAME::loadGame(){
     ifs.close();
 }
 void CGAME::newGame(){ 
+    fflush(stdin);
     vector<string> names=getSaveNames();
     string name;
     while (1){
@@ -219,7 +220,7 @@ void CGAME::newGame(){
         }
         else break;
     }
-    cin.ignore();
+    //cin.ignore();
     cn=new CPEOPLE(name,60,26);
     level=1;
 }
@@ -228,7 +229,7 @@ void CGAME::startGame(){
         textColor(0);
         system("cls");
         terminate(0);
-        cn->resetPos();
+        cn->resetLevel();
         switch (level)
         {
         case 1:
@@ -290,7 +291,8 @@ void CGAME::terminate(bool deleteCPEOPLE){
 }
 void CGAME::result()
 {
-    Sleep(8000);
+    system("cls");
+    Sleep(800);
     if (getPeople().isFinish()&&level>3)
     {
         WinMusic();

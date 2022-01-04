@@ -1,0 +1,22 @@
+﻿  canimal.cpp
+  cgame.cpp
+  clane.cpp
+  cobstacle.cpp
+  console.cpp
+D:\KHTN\CS\CS201\CS202_PJ_VS\console.cpp(213,17): warning C4101: 'start': unreferenced local variable
+D:\KHTN\CS\CS201\CS202_PJ_VS\console.cpp(279,17): warning C4101: 'start': unreferenced local variable
+D:\KHTN\CS\CS201\CS202_PJ_VS\console.cpp(351,17): warning C4101: 'start': unreferenced local variable
+D:\KHTN\CS\CS201\CS202_PJ_VS\console.cpp(424,17): warning C4101: 'start': unreferenced local variable
+  cpeople.cpp
+D:\KHTN\CS\CS201\CS202_PJ_VS\cpeople.cpp(8,26): warning C4267: '=': conversion from 'size_t' to 'int', possible loss of data
+D:\KHTN\CS\CS201\CS202_PJ_VS\cpeople.cpp(9,24): warning C4267: '=': conversion from 'size_t' to 'int', possible loss of data
+  ctraffic.cpp
+  cvehicle.cpp
+  header.cpp
+  main.cpp
+D:\KHTN\CS\CS201\CS202_PJ_VS\main.cpp(13,9): warning C4101: 'temp': unreferenced local variable
+  menu.cpp
+D:\KHTN\CS\CS201\CS202_PJ_VS\menu.cpp(246,22): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
+  Sound.cpp
+  Generating Code...
+  CS202_PJ_VS.vcxproj -> D:\KHTN\CS\CS201\CS202_PJ_VS\x64\Debug\CS202_PJ_VS.exe

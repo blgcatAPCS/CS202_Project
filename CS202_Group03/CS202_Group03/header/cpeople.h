@@ -38,7 +38,8 @@ public:
     void Left(int step);
     void Right(int step);
     void Down(int step);
-    void resetPos();
+
+    void resetLevel();
 
     void setHP(int num);
 

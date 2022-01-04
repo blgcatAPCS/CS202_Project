@@ -222,9 +222,10 @@ void CPEOPLE::Down(int step){
     mY=min(mY,tmpBotBorder-height);
 }
 
-void CPEOPLE::resetPos(){
+void CPEOPLE::resetLevel(){
     mX=60;
     mY=26;
+    win = 0;
 }
 
 bool CPEOPLE::isFinish(){
