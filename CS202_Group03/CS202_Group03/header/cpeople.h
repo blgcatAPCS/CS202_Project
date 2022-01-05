@@ -48,7 +48,7 @@ public:
     bool isDead();
     void setDead();
     void setWin();
-    void draw(vector<LANE*> lanes);
+    void draw(vector<LANE*> lanes,bool freeze);
     void clear(vector<LANE*> lanes);
     void save(ofstream &ofs);
     void load(ifstream &ifs);

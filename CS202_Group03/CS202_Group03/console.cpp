@@ -74,7 +74,6 @@ void unhidePointer()
 void boardGame(vector<LANE*> lanes) {
     textColor(0);
     system("cls");
-
     for (auto lane : lanes){
         OBSTACLE* obs=lane->getObstacles()[0];
         textColor(obs->getColor());
@@ -170,6 +169,8 @@ void boardGame(vector<LANE*> lanes) {
     }
 
     textColor(224);
+    gotoXY(110, 29);
+    cout << "P: PAUSE";
 }
 
 //offset is the deviation from the original position

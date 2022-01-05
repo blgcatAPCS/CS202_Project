@@ -22,7 +22,7 @@ int main()
         switch (c = _getch()) {
             case UP:
             {
-                Tap();
+                Bird();
                 choice = (choice + 3) % 4;
             }
                 break;

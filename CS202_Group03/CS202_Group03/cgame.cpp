@@ -87,14 +87,14 @@ CPEOPLE& CGAME::getPeople(){
 }
 
 bool CGAME::updatePeople(std::chrono::high_resolution_clock::time_point &start){
-    cn->draw(lanes);
+    cn->draw(lanes,freeze);
 
     char c;
    
     int dmg=getPeople().isImpact(getLanes());
     if (dmg)
     {
-        cn->draw(lanes);
+        cn->draw(lanes,freeze);
         if (!freeze)
         {
             cn->setHP(dmg);
@@ -251,7 +251,7 @@ void CGAME::startGame(){
             return;
         }
         boardGame(lanes);
-        cn->draw(lanes);
+        cn->draw(lanes,freeze);
         std::chrono::high_resolution_clock::time_point start;
 
         while (!getPeople().isDead() && !getPeople().isFinish()){

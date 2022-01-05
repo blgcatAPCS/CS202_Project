@@ -17,6 +17,7 @@ protected:
 public:
 	OBSTACLE(int x = 0, int y = 0, bool isReverse = false, int height = 10, int width = 10,int damage=0);
 
+    virtual void sound()=0;
 	virtual ~OBSTACLE();
 
 	virtual int getWidth();

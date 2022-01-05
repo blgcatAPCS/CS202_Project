@@ -15,6 +15,7 @@
 #include <chrono>
 #include <stdio.h>
 //Local header file
+#include "Sound.h"
 #include "config.h"
 #include "console.h"
 #include "ctraffic.h"
@@ -25,7 +26,7 @@
 #include "clane.h"
 #include "cgame.h"
 #include "menu.h"
-#include "Sound.h"
+
 using namespace std;
 using namespace std::chrono; //timing
 // using std::filesystem::directory_iterator; //file iter

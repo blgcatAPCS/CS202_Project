@@ -10,6 +10,7 @@ public:
     static const int width = 7;
 	static const int damage = 5;
 
+	void sound() { Dinosaur(); };
 	CDINOSAUR(int x = 0, int y = 0, bool isReverse = false);
 	OBSTACLE* create(int x = 0, int y = 0, bool isReverse = false);
 	void draw(const int &offset);
@@ -28,6 +29,7 @@ public:
     static const int width = 7;
 	static const int damage = 2;
 
+	void sound() { Bird(); };
 	CBIRD(int x = 0, int y = 0, bool isReverse = false);
 	OBSTACLE* create(int x = 0, int y = 0, bool isReverse = false);
 	void draw(const int &offset);
@@ -47,6 +49,7 @@ public:
     static const int width = 7;
 	static const int damage = 2;
 
+	void sound() { Duck(); };
 	CDUCK(int x = 0, int y = 0, bool isReverse = false);
 	OBSTACLE* create(int x = 0, int y = 0, bool isReverse = false);
 	void draw(const int &offset);

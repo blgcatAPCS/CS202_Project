@@ -9,7 +9,7 @@ CPEOPLE::CPEOPLE(string n, int x, int y, int v, int yFin)
     height=image.size();
 }
 
-void CPEOPLE::draw(vector<LANE*> lanes){
+void CPEOPLE::draw(vector<LANE*> lanes,bool freeze){
     textColor(236);
 
     gotoXY(11, 29);
@@ -44,6 +44,22 @@ void CPEOPLE::draw(vector<LANE*> lanes){
         
         textColor(color);
         gotoXY(mX,mY+i); cout << image[i];
+        
+        //draw freeze
+        textColor(236);
+        gotoXY(110,27);
+        cout << "FREEZE:";
+        if (freeze)
+        {
+            textColor(Green);
+            cout << char(219)<<char(219);
+        }
+        else
+        {
+            textColor(White);
+            cout << char(219) << char(219);
+        }
+
     }
     // if(mY >= 26 && mY <= consoleHeight){
     //     textColor(224);
@@ -256,8 +272,12 @@ int CPEOPLE::isImpact(vector<LANE*> lanes){
             int objLowerbound=obj->getPosY();
             int objUpperbound=objLowerbound+obj->getHeight();
 
-            if (((objLowerbound<mY && mY<objUpperbound) || (objLowerbound<mY+height && mY+height<objUpperbound)) &&
-                ((objLeftbound<mX && mX<objRightbound) || (objLeftbound<mX+width && mX+width<objRightbound))) return obj->getDamage();
+            if (((objLowerbound < mY && mY < objUpperbound) || (objLowerbound < mY + height && mY + height < objUpperbound)) &&
+                ((objLeftbound < mX && mX < objRightbound) || (objLeftbound < mX + width && mX + width < objRightbound)))
+            {
+                obj->sound();
+                return obj->getDamage();
+            }
         }
     }
     return 0;

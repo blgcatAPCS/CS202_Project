@@ -301,6 +301,7 @@ string getSaveGame(vector<string> name){
         gotoXY(20,7+n*2+3);
         cout << "Please enter the playing save file (1-" << n << ", 0 to cancel): ";
         cin >> choice;
+        Enter();
         if (choice && (choice<1 || choice>n)) {
             gotoXY(20,7+2+n+2);
             cout << "Sorry, the save file is not available! Please input again\n";

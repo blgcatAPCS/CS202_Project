@@ -24,6 +24,21 @@ void LoseMusic()
 	if (checkSound)
 		PlaySound(TEXT("Undertale OST_ 011 - Determination.wav"), NULL, SND_LOOP | SND_ASYNC);
 }
-
+void Dinosaur() {
+	if (checkSound)
+		PlaySound(TEXT("dinosaur.wav"), NULL, SND_FILENAME | SND_ASYNC);
+}
+void Duck() {
+	if (checkSound)
+		PlaySound(TEXT("duck.wav"), NULL, SND_FILENAME | SND_ASYNC);
+}
+void Car() {
+	if (checkSound)
+		PlaySound(TEXT("car.wav"), NULL, SND_FILENAME | SND_ASYNC);
+}
+void Bird() {
+	if (checkSound)
+		PlaySound(TEXT("bird.wav"), NULL, SND_FILENAME | SND_ASYNC);
+}
 
 //main
