@@ -106,6 +106,7 @@ bool CGAME::updatePeople(std::chrono::high_resolution_clock::time_point &start){
     
     if (_kbhit())
     {
+        Tap();
         cn->clear(lanes);
         c=toupper(_getch());
         switch (c){
@@ -162,6 +163,7 @@ void CGAME::activateTraffic(std::chrono::high_resolution_clock::time_point &star
 }
 void CGAME::saveGame(){
     saveGameMenu();
+    hidePointer();
     string choice;
     cin>>choice;
     while (choice!="y"&&choice!="n")
@@ -193,36 +195,37 @@ void CGAME::loadGame(){
     cn->load(ifs);
     ifs.close();
 }
-void CGAME::newGame(){ 
-    fflush(stdin);
-    vector<string> names=getSaveNames();
+void CGAME::newGame() {
+    vector<string> names = getSaveNames();
     string name;
-    while (1){
+    while (1) {
         clear();
         newGameMenu();
-        fflush(stdin);
-        getline(cin,name);
-        //cin.ignore();
-        if (checkNameIsExist(name)){
-            gotoXY(25,15);
-            if (name=="dataFile"){
+        getline(cin, name);
+        Enter();
+        cin.ignore(100, '\n');
+        if (checkNameIsExist(name)) {
+            gotoXY(25, 15);
+            if (name == "dataFile") {
                 cout << "This name is invalid! Press any key to get another one.";
                 _getch();
+                Tap();
             }
             else {
                 cout << "This name is already created!";
-                gotoXY(25,16);
+                gotoXY(25, 16);
                 cout << "Do you want to keep this name? (we will override save file if you keep this) (y/n):";
                 char choice;
                 cin >> choice;
-                if (choice=='y') break;                
+                Enter();
+                if (choice == 'y') break;
             }
         }
         else break;
     }
-    //cin.ignore();
-    cn=new CPEOPLE(name,60,26);
-    level=1;
+    fflush(stdin);
+    cn = new CPEOPLE(name, 60, 26);
+    level = 1;
 }
 void CGAME::startGame(){
     while (!getPeople().isDead() && level<=3){
@@ -291,6 +294,7 @@ void CGAME::terminate(bool deleteCPEOPLE){
 }
 void CGAME::result()
 {
+    hidePointer();
     system("cls");
     Sleep(800);
     if (getPeople().isFinish()&&level>3)
@@ -316,5 +320,39 @@ void CGAME::result()
             Sleep(400);
         }
     }
+    int tmp = _getch();
+    setConsoleWindow(930, 520);
     textColor(251);
+}
+void resetGame()
+{
+    resetMenu();
+    string choice;
+    cin >> choice;
+    while (choice != "y" && choice != "n")
+    {
+        pauseMenu();
+        cin >> choice;
+    }
+    Enter();
+    if (choice == "n") return;
+    deleteFile(dataroot);
+    clear();
+    gotoXY(25, 14);
+    cout << "SUCCESS!!";
+    Sleep(800);
+}
+void deleteFile(string path)
+{
+    string dir = path + "dataFile.txt";
+    ifstream ifs(dir);
+    while (!ifs.eof())
+    {
+        string name;
+        getline(ifs, name, '\n');
+        string filedir = path + name + ".txt";
+        remove(filedir.c_str());
+    }
+    ifs.close();
+    remove(dir.c_str());
 }

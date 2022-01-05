@@ -14,11 +14,6 @@ void Tap()
 	if (checkSound)
 		PlaySound(TEXT("tap.wav"), NULL, SND_FILENAME | SND_ASYNC | SND_NODEFAULT);
 }
-void DrawMusic()
-{
-	if (checkSound)
-		PlaySound(TEXT("Undertale OST_ 015 - sans.wav"), NULL, SND_LOOP | SND_ASYNC);
-}
 void WinMusic()
 {
 	if (checkSound)

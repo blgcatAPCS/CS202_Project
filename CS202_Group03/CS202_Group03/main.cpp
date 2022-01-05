@@ -6,25 +6,34 @@ using namespace std;
 char MOVING;
 bool IS_RUNNING = 1;
 
-bool checkSound = false;
+bool checkSound = true;
 
 int main()
 {
     int temp;
     hidePointer();
     fixConsoleWindow();
+    setConsoleWindow(930, 520);
     int choice = 0, c;
     CGAME g;
+    BackGround();
     while(1){
         drawMenu(choice);
         switch (c = _getch()) {
             case UP:
+            {
+                Tap();
                 choice = (choice + 3) % 4;
+            }
                 break;
             case DOWN:
+            {
+                Tap();
                 choice = (choice + 1) % 4;
+            }
                 break;
             case ENTER: {
+                Enter();
                 switch (choice) {
                     case 0:
                         g.newGame();
@@ -46,11 +55,16 @@ int main()
                         break;
                     case 2: 
                         settingsMenu();
+                        BackGround();
                         break;
                     
                     default:
                         break;
                 }
+            case ESC: {
+                exit(1);
+            }
+
 
             }
         }

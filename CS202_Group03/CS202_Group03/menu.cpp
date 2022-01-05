@@ -23,7 +23,7 @@ void drawMenu(int choice){
     {" _","|\"\"\"\"\"|","_","|\"\"\"\"\"|","_","|\"\"\"\"\"|","_","|\"\"\"\"\"|","_","|\"\"\"\"\"|","_","| \"\"\"\"|","_","|     |","_","|\"\"\"\"\"|","_","|\"\"\"\"\"|","_","|\"\"\"\"\"|","_","|\"\"\"\"\"|"," \n"}, 
     {" \"","`-0-0-'","\"","`-0-0-'","\"","`-0-0-'","\"","`-0-0-'","\"","`-0-0-'","\"","`-0-0-'","\"","`-0-0-'","\"","`-0-0-'","\"","`-0-0-'","\"","`-0-0-'","\"","`-0-0-'"," \n"}
     };
-    
+   
     for(int i = 0; i < 92; ++i){
         gotoXY(15 + i, 2);
         cout << (char) 220;
@@ -162,7 +162,9 @@ void drawMenu(int choice){
             gotoXY(37, y);
             cout << setting[i];
         }
-    }                                                                                                                                                                                                                                                                          
+    }      
+    gotoXY(1, 1);
+    cout << "ESC: EXIT";
     // clear();
     // system("pause");
 }
@@ -216,9 +218,58 @@ void settingsMenu(){
     clear();
     gotoXY(0,0);
     textColor(241);
-    gotoXY(34,14);
-    cout << "Request not yet processed! Enter to return to the menu";
-    _getch();
+    int x = 50, y = 14;
+    gotoXY(1, 1);
+    cout << "ESC TO BACK";
+    gotoXY(55, 12);
+    cout << "SETTING";
+    gotoXY(x,y);
+    cout << "MUSIC: ";
+    if (checkSound) cout << "ON ";
+    else cout << "OFF";
+    gotoXY(x, y + 2);
+    cout << "PRESS BACKSPACE TO RESET GAME";
+    gotoXY(x, y + 4);
+    cout << "PRESS ENTER TO CHANGE MUSIC";
+    while (1)
+    {
+        if (!_kbhit())
+        {
+            Tap();
+            int c = _getch();
+            if (c == ESC) break;
+            else if (c == ENTER)
+            {
+                checkSound = !checkSound;
+                gotoXY(x, y);
+                cout << "MUSIC: ";
+                if (checkSound) cout << "ON ";
+                else cout << "OFF";
+            }
+            else if (c == BACKSPACE)  //X
+            {
+                resetMenu();
+                resetGame();
+                clear();
+                gotoXY(0, 0);
+                textColor(241);
+                int x = 50, y = 14;
+                gotoXY(1, 1);
+                cout << "ESC TO BACK";
+                gotoXY(55, 12);
+                cout << "SETTING";
+                gotoXY(x, y);
+                cout << "MUSIC: ";
+                if (checkSound) cout << "ON ";
+                else cout << "OFF";
+                gotoXY(x, y + 2);
+                cout << "PRESS BACKSPACE TO RESET GAME";
+                gotoXY(x, y + 4);
+                cout << "PRESS ENTER TO CHANGE MUSIC";
+            }
+
+        }
+    }
 }
 void resetMenu(){
     clear();

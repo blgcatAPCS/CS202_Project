@@ -520,6 +520,7 @@ void clear_all(int offset, int height, int width, int x, int y){
 }
 void Winner()
 {
+    hidePointer();
     gotoXY(15, 7);  cout << "          ___         ___   ___   ____        ___   ____        ___   ___________    ___________    ";
     gotoXY(15, 8);  cout << "         /  /        /  /  /  /  /    \\      /  /  /    \\      /  /  /   _______/   /   ____   /   ";
     gotoXY(15, 9); cout << "        /  /  ___   /  /  /  /  /  /\\  \\    /  /  /  /\\  \\    /  /  /   /______    /   /___/  /  ";
@@ -529,12 +530,14 @@ void Winner()
 }
 void Loser()
 {
+    hidePointer();
     gotoXY(20, 7);  cout << "          ____          ____________   __________   ___________    ___________     ";
     gotoXY(20, 8);  cout << "         /   /         /  ______   /  /  _______/  /   _______/   /   ____   /   ";
     gotoXY(20, 9);  cout << "        /   /         /  /     /  /   \\  \\        /   /______    /   /___/  /  ";
     gotoXY(20, 10); cout << "       /   /         /  /     /  /     \\  \\      /   _______/   /   ___   _/  ";
     gotoXY(20, 11); cout << "      /   /______   /  /_____/  /  _____\\  \\    /   /_______   /   /   \\  \\ ";
     gotoXY(20, 12); cout << "     /__________/  /_________ _/  /_________/  /___________/  /___/    /__/   ";
+
 }
 void Result()
 {
@@ -542,6 +545,7 @@ void Result()
     //width 129
     setConsoleWindow(1000, 400);
     clrscr();
+    hidePointer();
     //boundary
     for (int i = 2; i <= 19; i++)
     {

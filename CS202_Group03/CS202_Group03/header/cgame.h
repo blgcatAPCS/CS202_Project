@@ -16,7 +16,7 @@ public:
     vector<LANE*> getLanes();
     //CVEHICLE* getVehicle();//Lấy danh sách các xe
     //CANIMAL* getAnimal(); //Lấy danh sách các thú
-    // void resetGame(); // Thực hiện thiết lập lại toàn bộ dữ liệu như lúc đầu
+    
     // void exitGame(HANDLE); // Thực hiện thoát Thread
     void startGame(); // Thực hiện bắt đầu vào trò chơi
     void newGame();
@@ -33,4 +33,6 @@ public:
     void initiateHard();
     void result();
 };
+void resetGame();
+void deleteFile(string path);
 #endif 

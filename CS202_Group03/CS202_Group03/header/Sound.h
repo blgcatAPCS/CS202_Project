@@ -4,7 +4,6 @@
 void BackGround();
 void Enter();
 void Tap();
-void DrawMusic();
 void WinMusic();
 void LoseMusic();
 

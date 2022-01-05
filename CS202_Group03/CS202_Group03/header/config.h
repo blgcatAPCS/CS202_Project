@@ -10,6 +10,7 @@ const int consoleWidth = 120, consoleHeight = 30;
 #define RIGHT			77
 #define ENTER			13
 #define ESC				27
+#define BACKSPACE		8
 
 //Color
 #define Black			0
