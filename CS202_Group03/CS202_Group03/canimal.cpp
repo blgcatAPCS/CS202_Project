@@ -1,5 +1,9 @@
 #include "header/header.h"
 
+void CDINOSAUR::sound() {
+    Dinosaur();
+}
+
 CDINOSAUR::CDINOSAUR(int x, int y, bool isReverse)
 : OBSTACLE(x, y, isReverse, height, width,damage){
     if (!isReverse) {
@@ -34,6 +38,10 @@ void CDINOSAUR::clear(const int &offset){
 
 int CDINOSAUR::getColor(){
     return 47;
+}
+
+void CBIRD::sound() {
+    Bird();
 }
 
 CBIRD::CBIRD(int x, int y, bool isReverse)
@@ -107,6 +115,10 @@ int CBIRD::getColor(){
 CBIRD::~CBIRD(){
     for (string*& visual : visuals)
         delete[] visual;
+}
+
+void CDUCK::sound() {
+    Duck();
 }
 
 CDUCK::CDUCK(int x, int y, bool isReverse)

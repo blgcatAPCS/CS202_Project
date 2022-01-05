@@ -154,6 +154,10 @@
     <ClCompile Include="Sound.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <Media Include="bird.wav" />
+    <Media Include="car.wav" />
+    <Media Include="dinosaur.wav" />
+    <Media Include="duck.wav" />
     <Media Include="DummyUndertaleOST-TobyFox.wav" />
     <Media Include="enter.wav" />
     <Media Include="tap.wav" />

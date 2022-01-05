@@ -1,5 +1,10 @@
 #include "header/header.h"
 
+void CTRUCK::sound()
+{
+    Car();
+}
+
 CTRUCK::CTRUCK(int x, int y, bool isReverse)
 : OBSTACLE(x, y, isReverse, height, width, damage){
     if (!isReverse) {
@@ -78,6 +83,11 @@ int CTRUCK::getColor(){
 CTRUCK::~CTRUCK(){
     for (string*& visual : visuals)
         delete[] visual;
+}
+
+void CCAR::sound()
+{
+    Car();
 }
 
 CCAR::CCAR(int x, int y, bool isReverse)

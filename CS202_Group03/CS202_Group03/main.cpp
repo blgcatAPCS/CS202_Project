@@ -21,52 +21,52 @@ int main()
         drawMenu(choice);
         switch (c = _getch()) {
             case UP:
-            {
                 Bird();
                 choice = (choice + 3) % 4;
-            }
                 break;
+
             case DOWN:
-            {
                 Tap();
                 choice = (choice + 1) % 4;
-            }
                 break;
-            case ENTER: {
+
+            case ENTER:
                 Enter();
                 switch (choice) {
-                    case 0:
-                        g.newGame();
+                case 0:
+                    g.newGame();
+                    g.startGame();
+                    g.terminate(1);
+                    break;
+
+                case 1:
+                    try {
+                        g.loadGame();
                         g.startGame();
                         g.terminate(1);
-                        break;
-                    case 1:
-                        try{
-                            g.loadGame();
-                            g.startGame();
-                            g.terminate(1);
-                        }
-                        catch(...){
-                            clrscr();
-                            gotoXY(25,11);
-                            cout << "Press any key to go back to the main menu";
-                            _getch();
-                        }
-                        break;
-                    case 2: 
-                        settingsMenu();
-                        BackGround();
-                        break;
-                    
-                    default:
-                        break;
+                    }
+                    catch (...) {
+                        clrscr();
+                        gotoXY(25, 11);
+                        cout << "Press any key to go back to the main menu";
+                        _getch();
+                    }
+                    break;
+
+                case 2:
+                    settingsMenu();
+                    break;
+
+                default:
+                    break;
                 }
-            case ESC: {
+
+                break;
+
+
+            case ESC:
                 exit(1);
-            }
-
-
-            }
+                break;
         }
     }
     

@@ -71,6 +71,18 @@
     <Media Include="Undertale OST_ 046 - Spear of Justice.wav">
       <Filter>Resource Files</Filter>
     </Media>
+    <Media Include="duck.wav">
+      <Filter>Resource Files</Filter>
+    </Media>
+    <Media Include="dinosaur.wav">
+      <Filter>Resource Files</Filter>
+    </Media>
+    <Media Include="car.wav">
+      <Filter>Resource Files</Filter>
+    </Media>
+    <Media Include="bird.wav">
+      <Filter>Resource Files</Filter>
+    </Media>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="header\canimal.h">

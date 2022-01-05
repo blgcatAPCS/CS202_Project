@@ -106,7 +106,7 @@ bool CGAME::updatePeople(std::chrono::high_resolution_clock::time_point &start){
     
     if (_kbhit())
     {
-        Tap();
+        //Tap();
         cn->clear(lanes);
         c=toupper(_getch());
         switch (c){
@@ -165,7 +165,7 @@ void CGAME::saveGame(){
     saveGameMenu();
     hidePointer();
     string choice;
-    cin>>choice;
+    getline(cin, choice);
     while (choice!="y"&&choice!="n")
     {
         saveGameMenu();
@@ -201,9 +201,9 @@ void CGAME::newGame() {
     while (1) {
         clear();
         newGameMenu();
+        cin.ignore(100, '\n');
         getline(cin, name);
         Enter();
-        cin.ignore(100, '\n');
         if (checkNameIsExist(name)) {
             gotoXY(25, 15);
             if (name == "dataFile") {

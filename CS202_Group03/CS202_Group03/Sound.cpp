@@ -1,4 +1,9 @@
 #include "header/header.h"
+
+const double playSoundTimeInterval = 1.0;
+double timePlaySound = 0;
+std::chrono::high_resolution_clock::time_point lastTimePlaySound = std::chrono::high_resolution_clock::now();
+
 void BackGround()
 {
 	if (checkSound)

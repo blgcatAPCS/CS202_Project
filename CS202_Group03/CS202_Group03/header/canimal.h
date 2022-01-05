@@ -10,12 +10,11 @@ public:
     static const int width = 7;
 	static const int damage = 5;
 
-	void sound() { Dinosaur(); };
+	void sound();
 	CDINOSAUR(int x = 0, int y = 0, bool isReverse = false);
 	OBSTACLE* create(int x = 0, int y = 0, bool isReverse = false);
 	void draw(const int &offset);
 	void clear(const int &offset);
-	//void Tell();
 
 	int getColor();
 };
@@ -29,12 +28,11 @@ public:
     static const int width = 7;
 	static const int damage = 2;
 
-	void sound() { Bird(); };
+	void sound();
 	CBIRD(int x = 0, int y = 0, bool isReverse = false);
 	OBSTACLE* create(int x = 0, int y = 0, bool isReverse = false);
 	void draw(const int &offset);
 	void clear(const int &offset);
-	//void Tell();
 	~CBIRD();
 
 	int getColor();
@@ -49,12 +47,11 @@ public:
     static const int width = 7;
 	static const int damage = 2;
 
-	void sound() { Duck(); };
+	void sound();
 	CDUCK(int x = 0, int y = 0, bool isReverse = false);
 	OBSTACLE* create(int x = 0, int y = 0, bool isReverse = false);
 	void draw(const int &offset);
 	void clear(const int &offset);
-	//void Tell();
 	~CDUCK();
 
 	int getColor();

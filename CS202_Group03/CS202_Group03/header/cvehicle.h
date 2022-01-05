@@ -13,7 +13,7 @@ public:
     static const int width = 16;
 	static const int damage = 10;
 
-	void sound() { Car(); };
+	void sound();
 	CTRUCK(int x = 0, int y = 0, bool isReverse = false);
 	OBSTACLE* create(int x = 0, int y = 0, bool isReverse = false);
 	void draw(const int &offset);
@@ -32,7 +32,7 @@ public:
     static const int width = 11;
 	static const int damage = 10;
 
-	void sound() { Car(); };
+	void sound();
 	void setDamage();
 	CCAR(int x = 0, int y = 0, bool isReverse = false);
 	OBSTACLE* create(int x = 0, int y = 0, bool isReverse = false);
