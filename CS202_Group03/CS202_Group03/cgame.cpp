@@ -194,15 +194,13 @@ void CGAME::loadGame(){
     ifs.close();
 }
 void CGAME::newGame(){ 
-    fflush(stdin);
     vector<string> names=getSaveNames();
     string name;
     while (1){
         clear();
         newGameMenu();
-        fflush(stdin);
         getline(cin,name);
-        //cin.ignore();
+        cin.ignore(100, '\n');
         if (checkNameIsExist(name)){
             gotoXY(25,15);
             if (name=="dataFile"){
@@ -220,7 +218,7 @@ void CGAME::newGame(){
         }
         else break;
     }
-    //cin.ignore();
+    fflush(stdin);
     cn=new CPEOPLE(name,60,26);
     level=1;
 }
@@ -292,7 +290,7 @@ void CGAME::terminate(bool deleteCPEOPLE){
 void CGAME::result()
 {
     system("cls");
-    Sleep(800);
+    //Sleep(800);
     if (getPeople().isFinish()&&level>3)
     {
         WinMusic();
